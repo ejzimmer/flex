@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Layout flowchart</title>
+    <style>
+      .label {
+        position: absolute;
+        top: 0;
+      }
+      .label.left {
+        left: 50%;
+        transform: translateX(-100%);
+      }
+      .label.right {
+        right: 50%;
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flow-chart">
+      <div class="node">
+        <div class="decision-point" data-options="yes:table-layout;no:text">
+          table?
+        </div>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 10 10">
+      <defs>
+        <marker
+          id="arrowhead"
+          viewBox="0 0 10 10"
+          refX="5"
+          refY="5"
+          markerWidth="6"
+          markerHeight="6"
+          fill="black"
+          orient="auto-start-reverse"
+        >
+          <path d="M 0 0 L 10 5 L 0 10 z" />
+        </marker>
+      </defs>
+    </svg>
+    <template id="arrow-left">
+      <svg viewBox="0 0 100 20" width="200px" stroke="black">
+        <line x1="100" y1="0" x2="5" y2="15" marker-end="url(#arrowhead)" />
+      </svg>
+    </template>
+    <template id="arrow-right">
+      <svg viewBox="0 0 100 20" width="200px" stroke="black">
+        <line x1="0" y1="0" x2="95" y2="15" marker-end="url(#arrowhead)" />
+      </svg>
+    </template>
+
+    <script>
+      const decisionPoints = document.querySelectorAll(".decision-point")
+      decisionPoints.forEach((decision) => {
+        const options = decision.dataset.options.split(";")
+        const { bottom, left, width } = decision.getBoundingClientRect()
+        const centreStart = left + width / 2
+
+        options.forEach((option) => {
+          const [labelText, endpoint] = option.split(":")
+          const element = document.querySelector(
+            `#${endpoint}.end-point, #${endpoint}>*:first-child`
+          )
+          const { top, left, width } = element.getBoundingClientRect()
+          const centreEnd = left + width / 2
+          const height = top - bottom
+          const svgWidth = Math.abs(centreStart - centreEnd)
+
+          const container = document.createElement("div")
+          container.style.position = "fixed"
+          container.style.top = bottom + "px"
+          container.style.height = `${height}px`
+          container.style.left = Math.min(centreStart, centreEnd) + "px"
+          container.style.width = svgWidth + "px"
+          decision.append(container)
+
+          const reverseArrow = centreEnd > centreStart
+          container.innerHTML = `
+            <svg viewBox="0 0 ${svgWidth} ${height}" stroke="currentColor">
+              <line x1="${reverseArrow ? 0 : svgWidth}" y1="0" x2="${
+            reverseArrow ? svgWidth : 0
+          }" y2="${height}" marker-end="url(#arrowhead)" />
+            </svg>`
+
+          // const label = document.createElement("div")
+          // label.textContent = labelText
+          // label.classList.add("label")
+          // label.classList.add(arrowDirection)
+          // container.appendChild(label)
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Do we even need flex anymore?</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Do we even need flex anymore?</h1>
+        </section>
+
+        <section>intro</section>
+
+        <section>
+          <h2>CSS Layout modes</h2>
+          <ul>
+            <li>Normal flow</li>
+            <li>Table layout</li>
+            <li>Positioned layout</li>
+            <li>Multi-column layout</li>
+            <li>Flexible box layout</li>
+            <li>Grid layout</li>
+          </ul>
+          citation
+          <div class="notes">
+            Layouts are used in combination We're not going to talk about
+            positioned layout, because it affects the elements position inside
+            its parent, rather than the layout of elements inside it
+          </div>
+          cross out positioned layout
+        </section>
+
+        <section>example pages we're going to use</section>
+
+        <section>flowchart</section>
+
+        <section>
+          <div class="flowchart">is it a table?</div>
+        </section>
+
+        <section>
+          use a table when the column headers label the cells, and everything in
+          a single row is related to a single entity jira issue table example
+        </section>
+
+        <section>
+          or when the row headers label the cells and everything in a single
+          column is related to a single entity example of that
+        </section>
+
+        <section>example of not a table</section>
+
+        <section>use table layout by using the table element</section>
+
+        <section>
+          `display: table` + crossed out techincally, you can also do table
+          layout by using display: table, but don't do this it's just there so
+          that browsers can use it in the agent stylesheet
+        </section>
+
+        <section>example of agent stylesheets for different browsers</section>
+
+        <section>back to flow chart</section>
+
+        <section>
+          <div class="flowchart">Is it text-based?</div>
+        </section>
+
+        <section>
+          <div class="flowchart">Is it newspaper-style columns?</div>
+          + exampl of what this might look like
+          <div class="notes">
+            Pretty unusual to use this on the web, presumably it's mainly for
+            text-layouts or things like e-books Be very careful when using it on
+            the web that the text is all going to fit on the screen
+          </div>
+        </section>
+
+        <section>
+          <h2>column layout</h2>
+          example of how it works
+        </section>
+
+        <section>back to flow chart</section>
+
+        <section>
+          <div class="flowchart">
+            Do you want your text to flow around something?
+          </div>
+          + example of what this might look like
+        </section>
+
+        <section>
+          <h2>float</h2>
+          how float works
+        </section>
+
+        <section>extra bonus cool: flow with clip-path</section>
+
+        <section>back to flow chart</section>
+
+        <section>
+          for everything else, there's normal flow examples of normal flow in
+          the text based layout + also in jira
+        </section>
+
+        <section>
+          back to flow chart
+          <div class="notes">
+            text based layouts are really only good for things that are flowing
+            in the same direction that text does so inline elements and text
+            going across the page, block elements going down the page
+          </div>
+        </section>
+
+        <section>
+          <div class="flowchart">
+            Are all the elements in a single row? (just in a row, nothing else)
+            <div class="notes">There's a few ways to achieve this</div>
+          </div>
+        </section>
+
+        <section>
+          using normal flow, make all the element display: inline-block (or
+          inline-flex, inline-grid, etc) - Pros: white space is maintained
+          between elements - Cons: layout is controlled by each individual
+          element, so it's all over the place Probably best in situations that
+          are very text like (eg label + input maybe?) I personally never use
+          this option
+        </section>
+
+        <section>
+          using grid works well when you know exactly how many things there are
+          _can_ work when you don't know how many things there are
+          (grid-auto-flow: column) but this usage is unusual
+        </section>
+
+        <section>
+          using flex - the simplest way to achieve this - probably my go-to
+        </section>
+
+        <section>
+          exception: horizontal scrolling. can this work with flex? or only
+          grid? or only normal flow?
+        </section>
+
+        <section>back to flow chart: flex for the above</section>
+
+        <section>
+          <div class="flowchart">do elements need to align in 2 dimensions</div>
+        </section>
+
+        <section>
+          flex vs grid implementations use grid also, grid areas
+        </section>
+
+        <section>
+          <div class="flowchart">
+            Do some elements need to stretch out to take up the available space?
+            example vertically/horizontally
+          </div>
+        </section>
+
+        <section>flex & grid side-by-side</section>
+
+        <section>
+          flex pros: - easier when we don't know how many elements there are, or
+          there are a lot of elements grid pros: - all the layout is in a single
+          place, so it's easier to understand complex layouts (could go either
+          way)
+        </section>
+
+        <section>back to flow chart</section>
+
+        <section>
+          <div class="flowchart">does something need to be centred</div>
+        </section>
+
+        <section>
+          ... i dunno. probably depends on how many things are being centred.
+        </section>
+
+        <section>
+          <div class="flowchart">
+            when should elements overflow to a second line?
+          </div>
+        </section>
+
+        <section>
+          <div class="flowchart">after as specific number of elements</div>
+        </section>
+
+        <section>grid</section>
+
+        <section>
+          <div class="flowchart">
+            when no more elements can fit, even if they squish up
+          </div>
+        </section>
+
+        <section>
+          <div class="flowchart">
+            should the elements be aligned with the elements above them?
+          </div>
+        </section>
+
+        <section>(no) flex</section>
+
+        <section>(yes) grid. with autofit/fill</section>
+
+        <section>
+          flex => grid simple => complex browser has more control => developer
+          has more control closer to leaf => further from leaf (nest flex in
+          grid more than grid in flex)
+        </section>
+
+        <section>
+          in conclusion YES we still need flex but it's not the go-to that it
+          once was if you start nesting flex containers, you probably want grid
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        controls: false,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      })
+    </script>
+  </body>
+</html>
