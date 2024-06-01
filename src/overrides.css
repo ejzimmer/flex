@@ -241,3 +241,15 @@ pre:has(~ pre) {
   --outline-color: hsl(201 75% 60%);
   --shadow-colour: hsl(201 98% 39%/0.6);
 }
+
+.gadget-title button {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+.gadget-title button:hover {
+  background: rgba(161, 189, 217, 0.08)
+}

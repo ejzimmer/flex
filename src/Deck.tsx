@@ -5,47 +5,48 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react"
-import Reveal, { Api } from "reveal.js"
-import { options } from "./revealOptions"
-import RevealHighlight from "reveal.js/plugin/highlight/highlight"
+} from "react";
+import Reveal, { Api } from "reveal.js";
+import { options } from "./revealOptions";
+import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 
-import "reveal.js/plugin/highlight/monokai.css"
-import { Fragment, Slide } from "./helpers/Slide"
-import { FlexVsGrid } from "./FlexVsGrid"
-import { Episodes } from "./Episodes"
-import { TVShows } from "./TVShows"
-import { RedditButtons, RedditPost } from "./RedditPost"
-import { TimeRangePicker } from "./TimeRangePicker"
-import { RavelryTags } from "./RavelryTags"
-import { Resizable } from "./helpers/Container"
-import { Connections } from "./Connections"
-import { DashboardGadgetModal } from "./DashboardGadgetModal"
-import { Menu } from "./Menu"
+import "reveal.js/plugin/highlight/monokai.css";
+import { Fragment, Slide } from "./helpers/Slide";
+import { FlexVsGrid } from "./FlexVsGrid";
+import { Episodes } from "./Episodes";
+import { TVShows } from "./TVShows";
+import { RedditButtons, RedditPost } from "./RedditPost";
+import { TimeRangePicker } from "./TimeRangePicker";
+import { RavelryTags } from "./RavelryTags";
+import { Resizable } from "./helpers/Container";
+import { Connections } from "./Connections";
+import { DashboardGadgetModal } from "./DashboardGadgetModal";
+import { Menu } from "./Menu";
+import { GadgetTitle } from "./GadgetTitle";
 
-const DeckContext = createContext<Api | null>(null)
+const DeckContext = createContext<Api | null>(null);
 
 function DeckProvider({ deck, children }: PropsWithChildren<{ deck?: Api }>) {
   return (
     <DeckContext.Provider value={deck ?? null}>{children}</DeckContext.Provider>
-  )
+  );
 }
 
 export function useDeck() {
-  return useContext(DeckContext)
+  return useContext(DeckContext);
 }
 
 export default function Deck() {
-  const [deck, setDeck] = useState<Api>()
+  const [deck, setDeck] = useState<Api>();
 
   useEffect(() => {
     const deck = new Reveal({
       ...options,
       plugins: [RevealHighlight],
-    })
-    deck.initialize()
-    setDeck(deck)
-  }, [])
+    });
+    deck.initialize();
+    setDeck(deck);
+  }, []);
 
   return (
     <DeckProvider deck={deck}>
@@ -55,7 +56,7 @@ export default function Deck() {
         </div>
       </div>
     </DeckProvider>
-  )
+  );
 }
 
 const AllSlides = memo(() => (
@@ -466,7 +467,7 @@ const AllSlides = memo(() => (
                A 10 10 0 0 1 67 17"
               stroke="white"
               fill="transparent"
-              stroke-width="8"
+              strokeWidth="8"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -595,7 +596,9 @@ const AllSlides = memo(() => (
         regardless of position
       </div>
     </Slide>
-    <Slide>gadget title with optional drag handle</Slide>
+    <Slide>
+      <GadgetTitle />
+    </Slide>
     <Slide>
       <FlexVsGrid browser={0.8} parent={1} />
     </Slide>
@@ -899,4 +902,4 @@ const AllSlides = memo(() => (
 
     <Slide>thank</Slide>
   </>
-))
+));
