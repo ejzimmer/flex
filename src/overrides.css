@@ -249,6 +249,10 @@ pre:has(~ pre) {
   color: inherit;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 }
 .gadget-title button:hover {
   background: rgba(161, 189, 217, 0.08)

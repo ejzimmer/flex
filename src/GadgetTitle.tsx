@@ -1,8 +1,12 @@
-export function GadgetTitle() {
+type Props = {
+  inEditMode?: boolean;
+};
+export function GadgetTitle({ inEditMode = false }: Props) {
   return (
     <div
       style={{
         display: "flex",
+        alignItems: "center",
         borderRadius: "3px",
         borderTop: "4px solid rgb(38, 132, 255)",
         textAlign: "start",
@@ -12,22 +16,31 @@ export function GadgetTitle() {
       }}
       className="gadget-title"
     >
-      <div>
-        <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-          <g fill="currentColor" fill-rule="evenodd">
-            <circle cx="10" cy="8" r="1"></circle>
-            <circle cx="14" cy="8" r="1"></circle>
-            <circle cx="10" cy="16" r="1"></circle>
-            <circle cx="14" cy="16" r="1"></circle>
-            <circle cx="10" cy="12" r="1"></circle>
-            <circle cx="14" cy="12" r="1"></circle>
-          </g>
-        </svg>
-      </div>
+      {inEditMode && (
+        <div
+          style={{
+            height: "32px",
+            width: "32px",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <svg height="100%" viewBox="0 0 24 24" role="presentation">
+            <g fill="currentColor" fillRule="evenodd">
+              <circle cx="10" cy="8" r="1"></circle>
+              <circle cx="14" cy="8" r="1"></circle>
+              <circle cx="10" cy="16" r="1"></circle>
+              <circle cx="14" cy="16" r="1"></circle>
+              <circle cx="10" cy="12" r="1"></circle>
+              <circle cx="14" cy="12" r="1"></circle>
+            </g>
+          </svg>
+        </div>
+      )}
       <div
         style={{
           fontWeight: "bold",
-          fontSize: ".7em",
+          fontSize: "20px",
           flexGrow: 1,
         }}
       >
@@ -67,23 +80,26 @@ export function GadgetTitle() {
           </g>
         </svg>
       </button>
-      <button aria-label="copy link">
-        <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-          <g fill="currentColor" fillRule="evenodd">
-            <path d="M12.856 5.457l-.937.92a1.002 1.002 0 000 1.437 1.047 1.047 0 001.463 0l.984-.966c.967-.95 2.542-1.135 3.602-.288a2.54 2.54 0 01.203 3.81l-2.903 2.852a2.646 2.646 0 01-3.696 0l-1.11-1.09L9 13.57l1.108 1.089c1.822 1.788 4.802 1.788 6.622 0l2.905-2.852a4.558 4.558 0 00-.357-6.82c-1.893-1.517-4.695-1.226-6.422.47"></path>
-            <path d="M11.144 19.543l.937-.92a1.002 1.002 0 000-1.437 1.047 1.047 0 00-1.462 0l-.985.966c-.967.95-2.542 1.135-3.602.288a2.54 2.54 0 01-.203-3.81l2.903-2.852a2.646 2.646 0 013.696 0l1.11 1.09L15 11.43l-1.108-1.089c-1.822-1.788-4.802-1.788-6.622 0l-2.905 2.852a4.558 4.558 0 00.357 6.82c1.893 1.517 4.695 1.226 6.422-.47"></path>
-          </g>
-        </svg>
-      </button>
-      <button aria-label="menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
-          <path
-            d="M12 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-4.5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm9 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          ></path>
-        </svg>
-      </button>
+      {inEditMode ? (
+        <button aria-label="menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <path
+              d="M12 14a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-4.5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm9 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+              fill="currentColor"
+              fillRule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      ) : (
+        <button aria-label="copy link">
+          <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+            <g fill="currentColor" fillRule="evenodd">
+              <path d="M12.856 5.457l-.937.92a1.002 1.002 0 000 1.437 1.047 1.047 0 001.463 0l.984-.966c.967-.95 2.542-1.135 3.602-.288a2.54 2.54 0 01.203 3.81l-2.903 2.852a2.646 2.646 0 01-3.696 0l-1.11-1.09L9 13.57l1.108 1.089c1.822 1.788 4.802 1.788 6.622 0l2.905-2.852a4.558 4.558 0 00-.357-6.82c-1.893-1.517-4.695-1.226-6.422.47"></path>
+              <path d="M11.144 19.543l.937-.92a1.002 1.002 0 000-1.437 1.047 1.047 0 00-1.462 0l-.985.966c-.967.95-2.542 1.135-3.602.288a2.54 2.54 0 01-.203-3.81l2.903-2.852a2.646 2.646 0 013.696 0l1.11 1.09L15 11.43l-1.108-1.089c-1.822-1.788-4.802-1.788-6.622 0l-2.905 2.852a4.558 4.558 0 00.357 6.82c1.893 1.517 4.695 1.226 6.422-.47"></path>
+            </g>
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

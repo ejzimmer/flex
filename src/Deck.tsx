@@ -565,10 +565,7 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <div style={{ display: "flex", borderRadius: "6px" }}>
-        <div style={{ flexGrow: 1 }}>Assigned to me</div>
-        minimise, something, refresh, menu
-      </div>
+      <GadgetTitle />
     </Slide>
     <Slide>
       <FlexVsGrid browser={0.8} parent={1} />
@@ -597,7 +594,7 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <GadgetTitle />
+      <GadgetTitle inEditMode />
     </Slide>
     <Slide>
       <FlexVsGrid browser={0.8} parent={1} />
