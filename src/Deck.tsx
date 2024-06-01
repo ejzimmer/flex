@@ -17,6 +17,11 @@ import { Episodes } from "./Episodes"
 import { TVShows } from "./TVShows"
 import { RedditButtons, RedditPost } from "./RedditPost"
 import { TimeRangePicker } from "./TimeRangePicker"
+import { RavelryTags } from "./RavelryTags"
+import { Resizable } from "./helpers/Container"
+import { Connections } from "./Connections"
+import { DashboardGadgetModal } from "./DashboardGadgetModal"
+import { Menu } from "./Menu"
 
 const DeckContext = createContext<Api | null>(null)
 
@@ -61,7 +66,7 @@ const AllSlides = memo(() => (
 
     <Slide>
       <div style={{ width: "max-content", margin: "auto", display: "grid" }}>
-        <h2>Erin Zimmer</h2>
+        <div>Erin Zimmer</div>
         <a href="https://www.atlassian.com/" target="blank" rel="noreferrer">
           <img alt="Atlassian" src="/Atlassian-horizontal-blue-rgb.svg" />
         </a>
@@ -96,7 +101,7 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <h2>Normal flow</h2>
+      <h1>Normal flow</h1>
       <div className="notes">Normal flow is for laying out text.</div>
     </Slide>
     <Slide>
@@ -118,14 +123,18 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <h2>Float</h2>
+      <h1>float</h1>
       <div className="notes">
         we can also jazz up normal flow a little float, which gives us a way to
         combine images and text a little more dynamically.
       </div>
     </Slide>
     <Slide className="text">
-      <h2>CHAPITRE III</h2>
+      <h2
+        style={{ fontFamily: "inherit", textShadow: "none", color: "inherit" }}
+      >
+        CHAPITRE III
+      </h2>
       <img alt="" src="prince.jpg" style={{ marginInlineStart: "40px" }} />
       <p>
         Il me fallut longtemps pour comprendre d'où il venait. Le petit prince,
@@ -142,7 +151,11 @@ const AllSlides = memo(() => (
       <p>-Oui, fis-je modestement.</p>
     </Slide>
     <Slide className="text">
-      <h2>CHAPITRE III</h2>
+      <h2
+        style={{ fontFamily: "inherit", textShadow: "none", color: "inherit" }}
+      >
+        CHAPITRE III
+      </h2>
       <img
         alt=""
         src="prince.jpg"
@@ -166,7 +179,16 @@ const AllSlides = memo(() => (
       <p>Et j'étais fier de lui apprendre que je volais. Alors il s'écria:</p>
       <p>-Comment! tu es tombé du ciel!</p>
       <p>-Oui, fis-je modestement.</p>
-      <Fragment as="pre" style={{ position: "fixed", top: "20%" }}>
+      <Fragment
+        as="pre"
+        style={{
+          position: "fixed",
+          top: "20%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          height: "200px",
+        }}
+      >
         <code className="css">
           {`img.avion {
   clip-path: path('...');
@@ -178,7 +200,7 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <h2>Columns</h2>
+      <h1>columns</h1>
     </Slide>
     <Slide>
       <div
@@ -325,6 +347,7 @@ const AllSlides = memo(() => (
             color: "white",
             fontSize: "1.3em",
             textAlign: "start",
+            textShadow: "none",
           }}
         >
           Star Trek: Lower Decks
@@ -368,10 +391,11 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <h2>Table</h2>
+      <h1>table</h1>
     </Slide>
     <Slide>
-      Jira issue table
+      <img src="cronometer.png" alt="cronometer daily food record" />
+      <cite>https://cronometer.com/#diary</cite>
       <div className="notes">this is a table - explanation</div>
     </Slide>
     <Slide>
@@ -382,7 +406,11 @@ const AllSlides = memo(() => (
       <div className="notes">also a table</div>
     </Slide>
     <Slide>
-      <img alt="ikea table search results" src="ikea-tables.png" />
+      <img
+        alt="ikea table search results"
+        src="ikea-tables.png"
+        className="r-stretch"
+      />
       <cite>https://www.ikea.com/au/en/cat/living-room-tables-10705/</cite>
       <div className="notes">not a table - explanation</div>
     </Slide>
@@ -400,6 +428,7 @@ const AllSlides = memo(() => (
       <img
         alt="a yarn weight conversion table"
         src="yarn-weight-conversion-table.png"
+        className="r-stretch"
       />
       <cite>https://www.laughinghens.com/yarn-conversion-chart</cite>
       <div className="notes">is this a table?</div>
@@ -408,18 +437,40 @@ const AllSlides = memo(() => (
       <code className="r-fit-text">&lt;table&gt;</code>
     </Slide>
     <Slide>
-      <div style={{ position: "relative" }}>
+      <div
+        className="r-stretch"
+        style={{ position: "relative", display: "flex", alignItems: "center" }}
+      >
         <code className="r-fit-text">display: table</code>
         <Fragment
           style={{
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(-50%, -35%)",
             fontSize: "6em",
+            "--outline-color": "hsl(360 75% 60%)",
+            "--shadow-colour": "hsl(360 98% 39%/0.6)",
           }}
         >
-          ❌
+          <svg
+            viewBox="0 0 100 100"
+            stroke="white"
+            width="300px"
+            filter="drop-shadow(0 0 7px var(--outline-color)) drop-shadow(0 0 10px var(--outline-color)) drop-shadow(0 0 42px var(--shadow-colour)) drop-shadow(0 0 82px var(--shadow-colour))"
+          >
+            <path
+              d="M 35 83
+               A 10 10 0 0 0 75 25
+               l -50 50
+               A 10 10 0 0 1 67 17"
+              stroke="white"
+              fill="transparent"
+              stroke-width="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </Fragment>
       </div>
     </Slide>
@@ -435,7 +486,7 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <h2>grid & flex</h2>
+      <h1>grid & flex</h1>
       <div className="notes">
         some cases, only flex or grid will work, but those cases are boring and
         easy to work out. what we really want to know is, for all the
@@ -448,14 +499,23 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <RedditButtons />
+      <div
+        style={{
+          width: "80%",
+          outline: "2px dashed",
+          padding: "20px",
+          marginInline: "auto",
+        }}
+      >
+        <RedditButtons />
+      </div>
     </Slide>
     <Slide>
-      <FlexVsGrid flexible={0.7} browser={1} parent={1} />
+      <FlexVsGrid browser={1} parent={1} />
       <div className="notes">strongly suggests we should use flex</div>
     </Slide>
     <Slide>
-      <pre>
+      <pre className="flex">
         <code className="css">{`.container {
   display: flex; 
 }`}</code>
@@ -464,7 +524,7 @@ const AllSlides = memo(() => (
         <code className="css">
           {`.container {
   display: grid; 
-  grid-auto-flow: column
+  grid-auto-flow: column;
 }`}
         </code>
       </pre>
@@ -484,11 +544,11 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <pre>
+      <pre className="flex">
         <code className="css">
           {`.container {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }`}
         </code>
       </pre>
@@ -504,13 +564,16 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      first element stretches out - heading with icons/buttons after
+      <div style={{ display: "flex", borderRadius: "6px" }}>
+        <div style={{ flexGrow: 1 }}>Assigned to me</div>
+        minimise, something, refresh, menu
+      </div>
     </Slide>
     <Slide>
-      <FlexVsGrid flexible={0.8} browser={0.8} parent={0.5} />
+      <FlexVsGrid browser={0.8} parent={1} />
     </Slide>
     <Slide>
-      <pre>
+      <pre className="flex">
         <code className="css">{`.container {
   display: flex;
 }
@@ -532,37 +595,35 @@ const AllSlides = memo(() => (
         regardless of position
       </div>
     </Slide>
+    <Slide>gadget title with optional drag handle</Slide>
     <Slide>
-      specific element stretches out - eg search bar?, but we're not sure
-      exactly where the search bar is going to appear, because there's a
-      variable number of other elements that could be before it
+      <FlexVsGrid browser={0.8} parent={1} />
     </Slide>
     <Slide>
-      <FlexVsGrid flexible={0.7} browser={0.9} parent={0.5} />
-    </Slide>
-    <Slide>
-      <pre>
+      <pre className="flex">
         <code className="css">
           {`.container {
   display: flex;
 }
 
-.search-bar {
-  flex-grow: 1
+.title {
+  flex-grow: 1;
 }`}
         </code>
       </pre>
     </Slide>
-    <Slide>header but sometimes with drag icon in front of it</Slide>
     <Slide>
-      <FlexVsGrid flexible={0.3} browser={0.3} parent={0.3} />
+      <Menu />
+    </Slide>
+    <Slide>
+      <FlexVsGrid browser={0.3} parent={0.3} />
     </Slide>
     <Slide>
       <pre>
         <code className="css">
           {`.container {
   display: grid;
-  grid-template-columns: max-content 1fr repeat(3, auto);
+  grid-template-columns: 40px 1fr repeat(4, auto);
   grid-template-areas: 'drag search . . .';
 }
 
@@ -582,37 +643,38 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
 
-    <Slide>overflow whenever - list of tags</Slide>
+    <Slide>I think we need an intro slide here or something maybe</Slide>
+
     <Slide>
-      <FlexVsGrid flexible={1} browser={1} parent={0.9} />
+      <Resizable maxWidth="600px">
+        <RavelryTags />
+      </Resizable>
+      <Fragment>
+        <img alt="a knitted chicken" src="emotional-support-chicken.jpg" />
+      </Fragment>
+    </Slide>
+    <Slide>
+      <FlexVsGrid browser={1} parent={0.9} />
     </Slide>
     <Slide>
       <pre>
-        <code>{`
-.container {
+        <code>{`.container {
   display: flex;
   flex-wrap: wrap;
 }        
         `}</code>
       </pre>
-      <div>
-        can't do it with grid. we have to decide how many items there are in a
-        row OR how big each item is. and the second row of items will always
-        align with the first row
-      </div>
-      <div>example of how a grid wrap thing would look</div>
     </Slide>
 
     <Slide>
       <Episodes />
     </Slide>
     <Slide>
-      <FlexVsGrid flexible={0.2} browser={0.7} parent={-1} />
+      <FlexVsGrid browser={0.7} parent={-1} />
     </Slide>
     <Slide>
       <pre>
-        <code>{`
-.container {
+        <code>{`.container {
   display: flex;
   flex-wrap: wrap;
 }
@@ -622,8 +684,7 @@ const AllSlides = memo(() => (
       `}</code>
       </pre>
       <pre>
-        <code>{`
-.container {
+        <code>{`.container {
   display: grid;
   grid-template-columns: repeat(auto-fit, var(--width))
 }
@@ -682,41 +743,160 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
 
-    <Slide>overflow after a fixed number of elements</Slide>
     <Slide>
-      <FlexVsGrid flexible={0.3} browser={0.3} parent={0} />
+      <Connections />
+      <div className="notes">
+        super basic example of this is the game from before
+      </div>
+    </Slide>
+    <Slide>
+      <FlexVsGrid browser={0.3} parent={0} />
     </Slide>
     <Slide>
       <pre>
-        <code className="css">{`
-.container {
+        <code className="css">{`.container {
   display: grid;
-  grid-template-columns: repeat(var(--num-columns), auto);
-}
-        `}</code>
+  grid-template-columns: repeat(var(--num-columns), 1fr);
+}`}</code>
       </pre>
     </Slide>
+    <Slide>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        <pre>
+          <code className="html">{`<board>
+  <row>
+    <tile /><tile /><tile /><tile />
+  <row>
+  <row>
+    <tile /><tile /><tile /><tile />  
+  <row>  
+  <row>
+    <tile /><tile /><tile /><tile />
+  <row>
+  <row>
+    <tile /><tile /><tile /><tile />
+  <row>
+</board>`}</code>
+        </pre>
+        <pre>
+          <code className="html">{`<board>
+    <tile /><tile /><tile /><tile />
+    <tile /><tile /><tile /><tile />  
+    <tile /><tile /><tile /><tile />
+    <tile /><tile /><tile /><tile />
+</board>`}</code>
+        </pre>
+      </div>
+      <div className="notes">
+        flex requires introduction of html elements purely for layout. row is
+        not a concept that matters in this application. grid lets us keep the
+        layout purely in css
+      </div>
+    </Slide>
 
-    <Slide>elements align with each other in two dimensions</Slide>
     <Slide>
-      <FlexVsGrid flexible={0.1} browser={0.1} parent={0} />
+      <div>2d layout?</div>
+      <Fragment>just use grid</Fragment>
+      <div className="notes">
+        and this is generally true in any situation where we need to layout
+        multiple rows of things, and there's some relationship between the rows.
+        grid lets us do it in CSS, flex requires additional markup
+      </div>
     </Slide>
-    <Slide>css for doing that in grid</Slide>
-    <Slide>comparison grid & flex?</Slide>
+
     <Slide>
-      if you need things to align in 2d, it's almost always going to be grid,
-      because you need so much dev control & limited flexibility to make it work
+      <FlexVsGrid browser={0.1} parent={0} />
     </Slide>
-    <Slide>the scrolly bit that only works in grid</Slide>
     <Slide>
-      a complex nested flex-only layout to show that it's not about complexity -
-      it's about flexibility
+      <DashboardGadgetModal />
+    </Slide>
+    <Slide>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        <pre>
+          <code className="html modal-highlights">
+            {`<modal>
+  <header />
+  <main>
+    <gadget-list>
+    <right-panel>
+      <gadget-preview />
+      <footer />
+    </right-panel>
+  </main>
+</modal>`}
+          </code>
+        </pre>
+        <Fragment as="pre">
+          <code className="css">{`.main {
+  display: flex;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gadget-preview {
+  flex-grow: 1;
+}
+        `}</code>
+        </Fragment>
+      </div>
+    </Slide>
+    <Slide>
+      <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
+        <pre>
+          <code className="html">
+            {`<modal>
+  <header />
+  <gadgets />
+  <preview />
+  <footer />
+</modal>`}
+          </code>
+        </pre>
+        <Fragment as="pre">
+          <code className="css">{`.modal {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas: 
+    "header header"
+    "gadgets preview"
+    "gadgets footer";
+}
+
+.header {
+  grid-area: header;
+}
+.gadgets {
+  grid-area: gadgets;
+}
+.preview {
+  grid-area: preview;
+}
+.footer {
+  grid-area: footer;
+}`}</code>
+        </Fragment>
+      </div>
     </Slide>
 
     <Slide>
       <FlexVsGrid />
+      <Fragment
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          color: "var(--purple)",
+        }}
+      >
+        <div>high level</div>
+        <div>low level</div>
+      </Fragment>
     </Slide>
 
-    <Slide>thanks</Slide>
+    <Slide>thank</Slide>
   </>
 ))

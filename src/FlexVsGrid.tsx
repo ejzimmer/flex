@@ -1,18 +1,17 @@
 type Props = {
-  flexible?: number
   browser?: number
   parent?: number
 }
 
 const sliderHeight = 80
 
-export function FlexVsGrid({ flexible, browser, parent }: Props) {
-  const validValues = [flexible, browser, parent]
+export function FlexVsGrid({ browser, parent }: Props) {
+  const validValues = [browser, parent]
     .map((val) => (val === -1 ? undefined : val))
-    .filter(Boolean) as number[]
+    .filter((val) => val !== undefined) as number[]
   const position =
     validValues.reduce((sum, val) => sum + val, 0) / validValues.length
-  const showPosition = [flexible, browser, parent].every((val) => !!val)
+  const showPosition = [browser, parent].every((val) => val !== undefined)
 
   return (
     <div
@@ -20,14 +19,14 @@ export function FlexVsGrid({ flexible, browser, parent }: Props) {
         borderWidth: `${sliderHeight}px`,
         borderTopStyle: "solid",
         borderImage:
-          "linear-gradient(to left, var(--blue), var(--purple)) 1 0%",
+          "linear-gradient(to left, var(--primary-colour), var(--red)) 1 0%",
         paddingTop: "20px",
         position: "relative",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h2>Grid</h2>
-        <h2>Flex</h2>
+        <h2 className="blue">Flex</h2>
       </div>
       <div
         style={{
@@ -36,17 +35,8 @@ export function FlexVsGrid({ flexible, browser, parent }: Props) {
           gridTemplateColumns: "auto 1fr auto",
         }}
       >
-        <Range
-          startLabel="less flexible"
-          endLabel="more flexible"
-          value={flexible}
-        />
-        <Range
-          startLabel="developer control"
-          endLabel="browser control"
-          value={browser}
-        />
-        <Range startLabel="parent down" endLabel="children up" value={parent} />
+        <Range startLabel="developer" endLabel="browser" value={browser} />
+        <Range startLabel="parent" endLabel="children" value={parent} />
       </div>
       {showPosition && <Marker position={position} />}
     </div>
@@ -62,7 +52,7 @@ function Marker({ position }: { position: number }) {
         height: `${sliderHeight * 1.2}px`,
         border: "4px solid white",
         position: "absolute",
-        top: `${sliderHeight * -1.14}px`,
+        top: `${sliderHeight * -1.1}px`,
         left: `min(${position * 100}%, calc(100% - ${sliderWidth * 1.2}px)`,
       }}
     />

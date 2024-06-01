@@ -43,7 +43,7 @@ function Episode({
       <img
         src={`lower-decks-episode-${episodeNumber}.jpg`}
         alt=""
-        style={{ margin: 0, marginBlockEnd: "8px" }}
+        style={{ margin: 0, marginBlockEnd: "8px", maxWidth: "100%" }}
       />
       <div>
         S1 E{episodeNumber} <span style={{ opacity: 0.6 }}>{releaseDate}</span>

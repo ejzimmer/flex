@@ -4,7 +4,7 @@
 
 .reveal.slide {
   color: white;
-  --r-heading-font: "Hylian Serif", serif;
+  --r-heading-font: "Tilt Neon", serif;
   --r-heading-color: var(--primary-colour);
   --r-heading-text-transform: none;
 }
@@ -172,203 +172,20 @@ pre.background {
 
 code.hljs {
   padding-top: 0.5em;
-  background: radial-gradient(
-      circle at 200px -50px,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px,
-      #130d03 12px 18px,
-      hsl(39, 25%, 6%) 18px 24px,
-      #130d03 24px 30px,
-      hsl(39, 25%, 6%) 30px 36px,
-      #130d03 36px 42px,
-      hsl(39, 25%, 6%) 42px 48px,
-      #130d03 48px 54px,
-      hsl(39, 25%, 6%) 54px 60px,
-      #130d03 60px 66px,
-      hsl(39, 25%, 6%) 66px 72px,
-      #130d03 72px 78px,
-      hsl(39, 25%, 6%) 78px 84px,
-      #130d03 84px 90px,
-      hsl(39, 25%, 6%) 90px 96px,
-      #130d03 96px 102px,
-      hsl(39, 25%, 6%) 102px 108px,
-      #130d03 108px 114px,
-      hsl(39, 25%, 6%) 114px 120px,
-      #130d03 120px 126px,
-      hsl(39, 25%, 6%) 126px 132px,
-      #130d03 132px 138px,
-      hsl(39, 25%, 6%) 138px 144px,
-      #130d03 144px 150px,
-      hsl(39, 25%, 6%) 150px 156px,
-      #130d03 156px 162px,
-      hsl(39, 25%, 6%) 162px 168px,
-      #130d03 168px 174px,
-      hsl(39, 25%, 6%) 174px 180px,
-      #130d03 180px 186px,
-      hsl(39, 25%, 6%) 186px 192px,
-      transparent 192px
-    ),
-    radial-gradient(
-      circle at 600px 0,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px,
-      #130d03 12px 18px,
-      hsl(39, 25%, 6%) 18px 24px,
-      #130d03 24px 30px,
-      hsl(39, 25%, 6%) 30px 36px,
-      #130d03 36px 42px,
-      hsl(39, 25%, 6%) 42px 48px,
-      #130d03 48px 54px,
-      hsl(39, 25%, 6%) 54px 60px,
-      #130d03 60px 66px,
-      hsl(39, 25%, 6%) 66px 72px,
-      #130d03 72px 78px,
-      hsl(39, 25%, 6%) 78px 84px,
-      #130d03 84px 90px,
-      hsl(39, 25%, 6%) 90px 96px,
-      #130d03 96px 102px,
-      hsl(39, 25%, 6%) 102px 108px,
-      #130d03 108px 114px,
-      hsl(39, 25%, 6%) 114px 120px,
-      #130d03 120px 126px,
-      hsl(39, 25%, 6%) 126px 132px,
-      #130d03 132px 138px,
-      hsl(39, 25%, 6%) 138px 144px,
-      #130d03 144px 150px,
-      hsl(39, 25%, 6%) 150px 156px,
-      #130d03 156px 162px,
-      hsl(39, 25%, 6%) 162px 168px,
-      #130d03 168px 174px,
-      hsl(39, 25%, 6%) 174px 180px,
-      #130d03 180px 186px,
-      hsl(39, 25%, 6%) 186px 192px,
-      transparent 192px
-    ),
-    radial-gradient(
-      circle at 0px 500px,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px,
-      #130d03 12px 18px,
-      hsl(39, 25%, 6%) 18px 24px,
-      #130d03 24px 30px,
-      hsl(39, 25%, 6%) 30px 36px,
-      #130d03 36px 42px,
-      hsl(39, 25%, 6%) 42px 48px,
-      #130d03 48px 54px,
-      hsl(39, 25%, 6%) 54px 60px,
-      #130d03 60px 66px,
-      hsl(39, 25%, 6%) 66px 72px,
-      #130d03 72px 78px,
-      hsl(39, 25%, 6%) 78px 84px,
-      #130d03 84px 90px,
-      hsl(39, 25%, 6%) 90px 96px,
-      #130d03 96px 102px,
-      hsl(39, 25%, 6%) 102px 108px,
-      #130d03 108px 114px,
-      hsl(39, 25%, 6%) 114px 120px,
-      #130d03 120px 126px,
-      hsl(39, 25%, 6%) 126px 132px,
-      #130d03 132px 138px,
-      hsl(39, 25%, 6%) 138px 144px,
-      #130d03 144px 150px,
-      hsl(39, 25%, 6%) 150px 156px,
-      #130d03 156px 162px,
-      hsl(39, 25%, 6%) 162px 168px,
-      #130d03 168px 174px,
-      hsl(39, 25%, 6%) 174px 180px,
-      #130d03 180px 186px,
-      hsl(39, 25%, 6%) 186px 192px,
-      transparent 192px
-    ),
-    radial-gradient(
-      circle at 400px 400px,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px,
-      #130d03 12px 18px,
-      hsl(39, 25%, 6%) 18px 24px,
-      #130d03 24px 30px,
-      hsl(39, 25%, 6%) 30px 36px,
-      #130d03 36px 42px,
-      hsl(39, 25%, 6%) 42px 48px,
-      #130d03 48px 54px,
-      hsl(39, 25%, 6%) 54px 60px,
-      #130d03 60px 66px,
-      hsl(39, 25%, 6%) 66px 72px,
-      #130d03 72px 78px,
-      hsl(39, 25%, 6%) 78px 84px,
-      #130d03 84px 90px,
-      hsl(39, 25%, 6%) 90px 96px,
-      #130d03 96px 102px,
-      hsl(39, 25%, 6%) 102px 108px,
-      #130d03 108px 114px,
-      hsl(39, 25%, 6%) 114px 120px,
-      #130d03 120px 126px,
-      hsl(39, 25%, 6%) 126px 132px,
-      #130d03 132px 138px,
-      hsl(39, 25%, 6%) 138px 144px,
-      #130d03 144px 150px,
-      hsl(39, 25%, 6%) 150px 156px,
-      #130d03 156px 162px,
-      hsl(39, 25%, 6%) 162px 168px,
-      #130d03 168px 174px,
-      hsl(39, 25%, 6%) 174px 180px,
-      #130d03 180px 186px,
-      hsl(39, 25%, 6%) 186px 192px,
-      transparent 192px
-    ),
-    radial-gradient(
-      circle at 750px 350px,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px,
-      #130d03 12px 18px,
-      hsl(39, 25%, 6%) 18px 24px,
-      #130d03 24px 30px,
-      hsl(39, 25%, 6%) 30px 36px,
-      #130d03 36px 42px,
-      hsl(39, 25%, 6%) 42px 48px,
-      #130d03 48px 54px,
-      hsl(39, 25%, 6%) 54px 60px,
-      #130d03 60px 66px,
-      hsl(39, 25%, 6%) 66px 72px,
-      #130d03 72px 78px,
-      hsl(39, 25%, 6%) 78px 84px,
-      #130d03 84px 90px,
-      hsl(39, 25%, 6%) 90px 96px,
-      #130d03 96px 102px,
-      hsl(39, 25%, 6%) 102px 108px,
-      #130d03 108px 114px,
-      hsl(39, 25%, 6%) 114px 120px,
-      #130d03 120px 126px,
-      hsl(39, 25%, 6%) 126px 132px,
-      #130d03 132px 138px,
-      hsl(39, 25%, 6%) 138px 144px,
-      #130d03 144px 150px,
-      hsl(39, 25%, 6%) 150px 156px,
-      #130d03 156px 162px,
-      hsl(39, 25%, 6%) 162px 168px,
-      #130d03 168px 174px,
-      hsl(39, 25%, 6%) 174px 180px,
-      #130d03 180px 186px,
-      hsl(39, 25%, 6%) 186px 192px,
-      transparent 192px
-    ),
-    repeating-radial-gradient(
-      circle at left,
-      #130d03 0 6px,
-      hsl(39, 25%, 6%) 6px 12px
-    );
+  background: none;
 }
 
-pre {
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-image: radial-gradient(
-    ellipse at top left,
-    var(--primary-colour),
-    transparent 30%
-  );
-  border-image-slice: 1;
-  padding-top: 0.5em;
+.reveal pre {
+  --outline-color: hsl(360 75% 60%);
+  --shadow-colour: hsl(360 98% 39%/0.6);
+  border: 8px solid;
+  border-radius: 10px;
+  box-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    inset 0 0 7px var(--outline-color), inset 0 0 10px var(--outline-color),
+    inset 0 0 42px var(--shadow-colour);
+  background: var(--background-colour);
+  padding: 15px;
 }
 
 .tag {
@@ -399,9 +216,28 @@ pre:has(~ pre) {
   transition: max-height 0.2s;
 }
 
-.reveal pre ~ pre {
-  position: fixed;
-  top: 340px;
-  left: 47px;
-  z-index: -1;
+.reveal h1 {
+  color: hsl(201 50% 90%);
+  --outline-color: hsl(201 75% 60%);
+  --shadow-colour: hsl(201 98% 39%/0.6);
+  text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
+    0 0 151px var(--shadow-colour);
+}
+
+.reveal h2 {
+  color: hsl(360 50% 90%);
+  --outline-color: hsl(360 75% 60%);
+  --shadow-colour: hsl(360 98% 39%/0.6);
+  text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
+    0 0 151px var(--shadow-colour);
+}
+.reveal h2.blue,
+.reveal pre.flex {
+  color: hsl(201 50% 90%);
+  --outline-color: hsl(201 75% 60%);
+  --shadow-colour: hsl(201 98% 39%/0.6);
 }

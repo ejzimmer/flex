@@ -93,6 +93,7 @@ export function RedditPost() {
             color: "inherit",
             fontFamily: "sans-serif",
             fontSize: ".8em",
+            textShadow: "none",
           }}
         >
           Entry for the humorously shaped vegetables section in the times.{" "}

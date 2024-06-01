@@ -118,6 +118,7 @@ function Show({ name, numberOfSeasons, image, ratio }: MetaData) {
           height: "100px",
           objectFit: "cover",
           objectPosition: "center 10%",
+          maxWidth: "100%",
         }}
       />
       <div>{name}</div>

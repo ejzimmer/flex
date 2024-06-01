@@ -5,10 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --primary-colour: hsl(155, 62%, 56%);
+  --primary-colour: hsl(201, 98%, 39%);
   --background-colour: hsl(39, 25%, 6%);
-  --purple: hsl(300 50% 50%);
-  --blue: #16a9f2;
+  --blue: var(--primary-colour);
+  --red: hsl(360, 100%, 45%);
+  --yellow: hsl(42, 99%, 50%);
 }
 
 * {
@@ -25,11 +26,13 @@ code {
 }
 
 @font-face {
-  font-family: "Hylian Serif";
-  src: url("/public/HyliaSerifBeta-Regular.otf") format("opentype");
-  font-weight: normal;
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Tilt Neon";
   font-style: normal;
+  font-weight: 400;
+  src: url("/public/tilt-neon-v10-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
 @font-face {
   font-family: "Red Hat Display";
   src: url("/public/RedHatDisplay.woff2") format("woff2");
@@ -123,7 +126,7 @@ button.reddit.downvote:hover {
   display: flex;
 }
 .time-range li input:checked + label {
-  background: var(--purple);
+  background: var(--yellow);
 }
 .time-range li label:hover {
   background: var(--blue);
@@ -137,4 +140,80 @@ button.reddit.downvote:hover {
   .time-range li label {
     padding-inline: 30px;
   }
+}
+
+.connections {
+  height: 100%;
+  display: flex;
+  text-transform: uppercase;
+}
+.connections input {
+  position: fixed;
+  top: -100%;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.connections label {
+  color: black;
+  background: #efefe6;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.connections input:checked + label {
+  background: #5a594e;
+  color: white;
+}
+
+.modal {
+  border: 2px solid;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas:
+    "header header"
+    "gadgets preview"
+    "gadgets footer";
+}
+.modal .header {
+  border-block-end: 1px solid;
+  grid-area: header;
+}
+.modal .gadgets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-inline-end: 1px solid;
+  grid-area: gadgets;
+}
+.modal .gadget-preview {
+  border-block-end: 1px solid;
+  grid-area: preview;
+}
+.modal .footer {
+  text-align: end;
+  grid-area: footer;
+}
+
+.modal-highlights .hljs-tag:nth-child(3),
+.modal-highlights .hljs-tag:nth-child(3) *,
+.modal-highlights .hljs-tag:nth-child(8),
+.modal-highlights .hljs-tag:nth-child(8) *,
+.modal-highlights .hljs-tag:nth-child(9),
+.modal-highlights .hljs-tag:nth-child(9) *,
+.modal-highlights .hljs-tag:nth-child(5),
+.modal-highlights .hljs-tag:nth-child(5) * {
+  color: var(--blue);
+}
+.modal-highlights .hljs-tag:nth-child(3),
+.modal-highlights .hljs-tag:nth-child(8),
+.modal-highlights .hljs-tag:nth-child(9),
+.modal-highlights .hljs-tag:nth-child(5) {
+  color: var(--blue);
+  background: hsl(205 50% 50% / 0.4);
 }
