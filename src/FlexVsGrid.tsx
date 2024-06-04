@@ -14,32 +14,40 @@ export function FlexVsGrid({ browser, parent }: Props) {
   const showPosition = [browser, parent].every((val) => val !== undefined)
 
   return (
-    <div
-      style={{
-        borderWidth: `${sliderHeight}px`,
-        borderTopStyle: "solid",
-        borderImage:
-          "linear-gradient(to left, var(--primary-colour), var(--red)) 1 0%",
-        paddingTop: "20px",
-        position: "relative",
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h2>Grid</h2>
-        <h2 className="blue">Flex</h2>
-      </div>
+    <>
       <div
         style={{
-          display: "grid",
-          gap: "20px",
-          gridTemplateColumns: "auto 1fr auto",
+          height: `${sliderHeight}px`,
+          backgroundImage:
+            "linear-gradient(to left, var(--primary-colour), var(--red))",
+          borderRadius: "1000px",
+          width: "104%",
+          marginInlineStart: "-2%",
+        }}
+      />
+      <div
+        style={{
+          paddingTop: "20px",
+          position: "relative",
         }}
       >
-        <Range startLabel="developer" endLabel="browser" value={browser} />
-        <Range startLabel="parent" endLabel="children" value={parent} />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h2 className="grid">Grid</h2>
+          <h2 className="blue">Flex</h2>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gap: "20px",
+            gridTemplateColumns: "auto 1fr auto",
+          }}
+        >
+          <Range startLabel="developer" endLabel="browser" value={browser} />
+          <Range startLabel="parent" endLabel="children" value={parent} />
+        </div>
+        {showPosition && <Marker position={position} />}
       </div>
-      {showPosition && <Marker position={position} />}
-    </div>
+    </>
   )
 }
 
@@ -54,6 +62,9 @@ function Marker({ position }: { position: number }) {
         position: "absolute",
         top: `${sliderHeight * -1.1}px`,
         left: `min(${position * 100}%, calc(100% - ${sliderWidth * 1.2}px)`,
+        borderRadius: "10px",
+        boxShadow: "0 0 10px 4px hsl(0 0 0/.6)",
+        backdropFilter: "blur(10px)",
       }}
     />
   )
@@ -109,6 +120,9 @@ function RangeTick({ value }: { value: number }) {
         top: "50%",
         transform: "translateY(-50%)",
         left: `min(${value * 100}%, calc(100% - ${tickWidth}))`,
+        borderRadius: "100px",
+        boxShadow:
+          "0 0 20px 3px hsl(0 0 0 /.6), inset -1.5px -1.5px var(--blue)",
       }}
     />
   )

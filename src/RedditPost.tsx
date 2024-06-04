@@ -1,6 +1,13 @@
 export function RedditPost() {
   return (
-    <div style={{ textAlign: "start", marginBottom: "60px" }}>
+    <div
+      style={{
+        textAlign: "start",
+        padding: "30px",
+        background: "#0b1416",
+        borderRadius: "20px",
+      }}
+    >
       <div
         style={{
           display: "grid",
@@ -120,9 +127,6 @@ export function RedditPost() {
         </article>
       </div>
       <RedditButtons />
-      <cite>
-        https://www.reddit.com/r/discworld/comments/d4qg9u/entry_for_the_humorously_shaped_vegetables/
-      </cite>
     </div>
   )
 }

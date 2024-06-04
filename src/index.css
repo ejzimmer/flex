@@ -81,8 +81,11 @@ button.plain {
   background: none;
   box-shadow: none;
 }
-button.plain:hover {
+button.plain:hover,
+button.plain:active,
+button.plain:focus {
   box-shadow: none;
+  text-shadow: none;
 }
 button.reddit {
   background: #dbeaf7;

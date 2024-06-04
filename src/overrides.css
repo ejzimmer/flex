@@ -18,12 +18,14 @@
   transform: translateY(150%);
 }
 
-cite.footnote {
+cite {
   display: block;
   font-size: 0.8em;
   position: absolute;
   right: 0;
   bottom: 0;
+}
+cite.footnote {
   transform: translateY(150%);
 }
 
@@ -210,12 +212,6 @@ pre:not(.background):has(~ pre.background) {
   box-shadow: 10px 0 10px 20px hsl(39, 25%, 6%);
 }
 
-pre ~ pre,
-pre:has(~ pre) {
-  max-height: 300px;
-  transition: max-height 0.2s;
-}
-
 .reveal h1 {
   color: hsl(201 50% 90%);
   --outline-color: hsl(201 75% 60%);
@@ -226,20 +222,53 @@ pre:has(~ pre) {
     0 0 151px var(--shadow-colour);
 }
 
-.reveal h2 {
-  color: hsl(360 50% 90%);
-  --outline-color: hsl(360 75% 60%);
-  --shadow-colour: hsl(360 98% 39%/0.6);
+.reveal h1.multi {
+  color: hsl(42, 99%, 85%);
+  --outline-color: hsl(42 75% 60%);
+  --shadow-colour: hsl(42 98% 39%/0.6);
   text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
     0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
     0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
     0 0 151px var(--shadow-colour);
 }
+.reveal h1.multi {
+  text-shadow: none;
+}
+.reveal h1.multi span {
+  text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
+    0 0 151px var(--shadow-colour);
+}
+
+.reveal h2 {
+  color: hsl(42, 99%, 85%);
+  --outline-color: hsl(42 75% 60%);
+  --shadow-colour: hsl(42 98% 39%/0.6);
+  text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
+    0 0 151px var(--shadow-colour);
+}
+.reveal h2.red,
+.reveal pre.grid,
+.reveal h2.grid,
+.reveal h1.multi span.grid {
+  color: hsl(360 50% 90%);
+  --outline-color: hsl(360 75% 60%);
+  --shadow-colour: hsl(360 98% 39%/0.6);
+}
 .reveal h2.blue,
-.reveal pre.flex {
+.reveal pre.flex,
+.flex {
   color: hsl(201 50% 90%);
   --outline-color: hsl(201 75% 60%);
   --shadow-colour: hsl(201 98% 39%/0.6);
+}
+.reveal pre {
+  color: hsl(42, 99%, 85%);
+  --outline-color: hsl(42 75% 60%);
+  --shadow-colour: hsl(42 98% 39%/0.6);
 }
 
 .gadget-title button {
@@ -255,5 +284,9 @@ pre:has(~ pre) {
   padding: 0;
 }
 .gadget-title button:hover {
-  background: rgba(161, 189, 217, 0.08)
+  background: rgba(161, 189, 217, 0.08);
+}
+
+img {
+  border-radius: 20px;
 }

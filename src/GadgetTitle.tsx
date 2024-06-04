@@ -1,6 +1,6 @@
 type Props = {
-  inEditMode?: boolean;
-};
+  inEditMode?: boolean
+}
 export function GadgetTitle({ inEditMode = false }: Props) {
   return (
     <div
@@ -23,6 +23,7 @@ export function GadgetTitle({ inEditMode = false }: Props) {
             width: "32px",
             display: "flex",
             alignItems: "center",
+            cursor: "grab",
           }}
         >
           <svg height="100%" viewBox="0 0 24 24" role="presentation">
@@ -101,5 +102,5 @@ export function GadgetTitle({ inEditMode = false }: Props) {
         </button>
       )}
     </div>
-  );
+  )
 }

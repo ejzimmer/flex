@@ -18,8 +18,6 @@ export function Episodes() {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, 200px)",
         gap: "24px 10px",
-        resize: "horizontal",
-        overflow: "hidden",
       }}
     >
       {episodes.map((episode, index) => (
@@ -43,7 +41,12 @@ function Episode({
       <img
         src={`lower-decks-episode-${episodeNumber}.jpg`}
         alt=""
-        style={{ margin: 0, marginBlockEnd: "8px", maxWidth: "100%" }}
+        style={{
+          margin: 0,
+          marginBlockEnd: "8px",
+          maxWidth: "100%",
+          borderRadius: 0,
+        }}
       />
       <div>
         S1 E{episodeNumber} <span style={{ opacity: 0.6 }}>{releaseDate}</span>

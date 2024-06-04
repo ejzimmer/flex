@@ -1,5 +1,23 @@
 const foodItems = [
-  { veg: "vego", name: "samosa", description: "delicious", price: 8 },
+  {
+    veg: "vego",
+    name: "samosa",
+    description:
+      "Triangular shaped savoury pastry filled with mashed potatoes.",
+    price: 10,
+  },
+  {
+    name: "butter chicken",
+    description:
+      "Tender pieces of chicken marinated overnight, part-cooked in a clay oven and simmered in a silky tomato sauce.",
+    price: 22,
+  },
+  {
+    veg: "vegan",
+    name: "aloo gobi",
+    description: "Cauliflower, potato tossed with tomato, ginger and spices.",
+    price: 18,
+  },
 ] as const
 
 export function Menu() {
@@ -30,13 +48,18 @@ function FoodItem({ veg, name, description, price }: Props) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "400px max-content 1fr max-content",
-        gridTemplateAreas: "'veg name description price'",
+        gridTemplateColumns: "60px 1fr max-content",
+        gridTemplateAreas: "'veg name price' 'veg description description",
+        columnGap: "20px",
+        textAlign: "start",
+        fontSize: "1.5rem",
+        borderBottom: "1px solid",
+        paddingBlock: "20px",
       }}
     >
       <div style={{ gridArea: "veg" }}>{Icon && <Icon />}</div>
-      <div style={{ gridArea: "name" }}>{name}</div>
-      <div style={{ gridArea: "description" }}>{description}</div>
+      <div style={{ gridArea: "name", fontWeight: "bold" }}>{name}</div>
+      <div style={{ gridArea: "description", opacity: 0.6 }}>{description}</div>
       <div style={{ gridArea: "price" }}>${price}</div>
     </div>
   )
@@ -44,38 +67,38 @@ function FoodItem({ veg, name, description, price }: Props) {
 
 function VegetarianIcon() {
   return (
-    <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="35" fill="limegreen" />
+    <svg viewBox="0 0 100 100" color="hsl(110 80% 50%)">
+      <circle cx="50" cy="50" r="35" fill="currentColor" />
       <path d="m50,80 a200,80 0 0 1 0,-50 a200,80 0 0 1 0,50" fill="white" />
       <circle id="curve" cx="50" cy="50" r="40" fill="none" />
       <path
         d="m50,75 l0,-35"
         strokeLinecap="round"
-        stroke="limegreen"
+        stroke="currentColor"
         strokeWidth="2"
       />
       <path
         d="m50,60 l-7,-7"
         strokeLinecap="round"
-        stroke="limegreen"
+        stroke="currentColor"
         strokeWidth="2"
       />
       <path
         d="m50,53 l5,-5"
         strokeLinecap="round"
-        stroke="limegreen"
+        stroke="currentColor"
         strokeWidth="2"
       />
       <path
         d="m50,67 l7,-7"
         strokeLinecap="round"
-        stroke="limegreen"
+        stroke="currentColor"
         strokeWidth="2"
       />
 
       <g transform="rotate(-90, 50, 50)">
         <text fontSize="20">
-          <textPath href="#curve" fill="limegreen">
+          <textPath href="#curve" fill="currentColor">
             vegetarian
           </textPath>
         </text>
@@ -86,21 +109,72 @@ function VegetarianIcon() {
 
 function VeganIcon() {
   return (
-    <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="40" fill="limegreen" />
-      <path id="curve" fill="none" d="M50,10 a40 40 0 1 0 0,0" />
+    <svg viewBox="0 0 100 100" color="hsl(110 80% 30%)">
+      <circle cx="50" cy="50" r="35" fill="currentColor" />
+      <circle id="curve" cx="50" cy="50" r="40" fill="none" />
 
-      <text
-        font-size="5"
-        fill="#000000"
-        letter-spacing="2"
-        font-family="sans-serif"
-        font-weight="bold"
-      >
-        <textPath href="#curve" startOffset="5">
-          vegan
-        </textPath>
-      </text>
+      <g transform="rotate(-25, 40, 80)">
+        <path d="m50,80 a200,80 0 0 1 0,-50 a200,80 0 0 1 0,50" fill="white" />
+        <path
+          d="m50,75 l0,-35"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,60 l-7,-7"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,53 l5,-5"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,67 l7,-7"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </g>
+      <g transform="rotate(25, 40, 80)">
+        <path d="m50,75 a200,80 0 0 1 0,-50 a200,80 0 0 1 0,50" fill="white" />
+        <path
+          d="m50,75 l0,-35"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,60 l-7,-7"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,53 l5,-5"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <path
+          d="m50,67 l7,-7"
+          strokeLinecap="round"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+      </g>
+
+      <g transform="rotate(-75, 50, 50)">
+        <text fontSize="20">
+          <textPath href="#curve" fill="currentColor">
+            vegan
+          </textPath>
+        </text>
+      </g>
     </svg>
   )
 }

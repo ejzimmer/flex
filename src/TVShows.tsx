@@ -88,8 +88,6 @@ export function TVShows() {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, 50px)",
         gap: "24px 10px",
-        resize: "horizontal",
-        overflow: "hidden",
       }}
     >
       {shows.map((show, index) => (
@@ -119,6 +117,7 @@ function Show({ name, numberOfSeasons, image, ratio }: MetaData) {
           objectFit: "cover",
           objectPosition: "center 10%",
           maxWidth: "100%",
+          borderRadius: 0,
         }}
       />
       <div>{name}</div>

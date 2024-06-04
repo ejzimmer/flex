@@ -5,48 +5,48 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react";
-import Reveal, { Api } from "reveal.js";
-import { options } from "./revealOptions";
-import RevealHighlight from "reveal.js/plugin/highlight/highlight";
+} from "react"
+import Reveal, { Api } from "reveal.js"
+import { options } from "./revealOptions"
+import RevealHighlight from "reveal.js/plugin/highlight/highlight"
 
-import "reveal.js/plugin/highlight/monokai.css";
-import { Fragment, Slide } from "./helpers/Slide";
-import { FlexVsGrid } from "./FlexVsGrid";
-import { Episodes } from "./Episodes";
-import { TVShows } from "./TVShows";
-import { RedditButtons, RedditPost } from "./RedditPost";
-import { TimeRangePicker } from "./TimeRangePicker";
-import { RavelryTags } from "./RavelryTags";
-import { Resizable } from "./helpers/Container";
-import { Connections } from "./Connections";
-import { DashboardGadgetModal } from "./DashboardGadgetModal";
-import { Menu } from "./Menu";
-import { GadgetTitle } from "./GadgetTitle";
+import "reveal.js/plugin/highlight/monokai.css"
+import { Fragment, Slide } from "./helpers/Slide"
+import { FlexVsGrid } from "./FlexVsGrid"
+import { Episodes } from "./Episodes"
+import { TVShows } from "./TVShows"
+import { RedditButtons, RedditPost } from "./RedditPost"
+import { TimeRangePicker } from "./TimeRangePicker"
+import { RavelryTags } from "./RavelryTags"
+import { Connections } from "./Connections"
+import { DashboardGadgetModal } from "./DashboardGadgetModal"
+import { Menu } from "./Menu"
+import { GadgetTitle } from "./GadgetTitle"
+import { Resize } from "./helpers/Resize"
 
-const DeckContext = createContext<Api | null>(null);
+const DeckContext = createContext<Api | null>(null)
 
 function DeckProvider({ deck, children }: PropsWithChildren<{ deck?: Api }>) {
   return (
     <DeckContext.Provider value={deck ?? null}>{children}</DeckContext.Provider>
-  );
+  )
 }
 
 export function useDeck() {
-  return useContext(DeckContext);
+  return useContext(DeckContext)
 }
 
 export default function Deck() {
-  const [deck, setDeck] = useState<Api>();
+  const [deck, setDeck] = useState<Api>()
 
   useEffect(() => {
     const deck = new Reveal({
       ...options,
       plugins: [RevealHighlight],
-    });
-    deck.initialize();
-    setDeck(deck);
-  }, []);
+    })
+    deck.initialize()
+    setDeck(deck)
+  }, [])
 
   return (
     <DeckProvider deck={deck}>
@@ -56,7 +56,7 @@ export default function Deck() {
         </div>
       </div>
     </DeckProvider>
-  );
+  )
 }
 
 const AllSlides = memo(() => (
@@ -66,12 +66,24 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <div style={{ width: "max-content", margin: "auto", display: "grid" }}>
-        <div>Erin Zimmer</div>
+      <div
+        style={{
+          width: "max-content",
+          margin: "auto",
+          display: "grid",
+          fontSize: "2em",
+        }}
+      >
+        <div style={{ fontSize: "1.1em" }}>Erin Zimmer</div>
         <a href="https://www.atlassian.com/" target="blank" rel="noreferrer">
           <img alt="Atlassian" src="/Atlassian-horizontal-blue-rgb.svg" />
         </a>
-        <a href="https://hooks.ez.codes">flex.ez.codes</a>
+        <a
+          style={{ fontSize: "0.7em", textDecoration: "underline" }}
+          href="https://hooks.ez.codes"
+        >
+          flex.ez.codes
+        </a>
       </div>
     </Slide>
 
@@ -79,7 +91,6 @@ const AllSlides = memo(() => (
       <h2>Layout mode</h2>
       <ul>
         <li>Controls how children are positioned</li>
-        <li>Changes how some properties work</li>
         <li>Grants access to some properties</li>
       </ul>
     </Slide>
@@ -102,21 +113,35 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <h1>Normal flow</h1>
+      <h1>normal flow</h1>
       <div className="notes">Normal flow is for laying out text.</div>
     </Slide>
     <Slide>
       <img className="r-stretch" alt="boiled eggs recips" src="boil-eggs.png" />
-      <cite>https://www.recipetineats.com/how-to-boil-eggs/</cite>
+      <cite>
+        <a href="https://www.recipetineats.com/how-to-boil-eggs/">
+          recipetineats
+        </a>
+      </cite>
       <div className="notes">pages that are mostly text-based</div>
     </Slide>
     <Slide>
       <img alt="excerpt from Le Petit Prince" src="mouton.png" />
-      <cite>https://gutenberg.net.au/ebooks03/0300771h.html#ppchap2 </cite>
+      <cite>
+        <a href="https://gutenberg.net.au/ebooks03/0300771h.html#ppchap2">
+          Le Petit Prince - Gutenberg
+        </a>
+      </cite>
       <div className="notes">or pages that include text & images</div>
     </Slide>
     <Slide>
       <RedditPost />
+      <cite>
+        <a href="https://www.reddit.com/r/discworld/comments/d4qg9u/entry_for_the_humorously_shaped_vegetables/">
+          Reddit
+        </a>
+      </cite>
+
       <div className="notes">
         And it doesn't have to be the whole page - text bit in the middle of
         this reddit post is normal flow
@@ -213,6 +238,7 @@ const AllSlides = memo(() => (
           fontSize: "20px",
           textAlign: "justify",
           padding: "40px",
+          borderRadius: "20px",
         }}
       >
         <h4 style={{ fontFamily: "serif", color: "inherit" }}>
@@ -267,9 +293,10 @@ const AllSlides = memo(() => (
           background: "white",
           color: "black",
           fontFamily: "serif",
-          fontSize: "20px",
+          fontSize: "15px",
           textAlign: "justify",
           padding: "40px",
+          borderRadius: "20px",
         }}
       >
         <h4 style={{ fontFamily: "serif", color: "inherit" }}>
@@ -320,10 +347,6 @@ const AllSlides = memo(() => (
         </p>
         <p className="break">...</p>
       </div>
-      <cite style={{ color: "var(--primary-colour)" }}>
-        Terry Pratchett, <i>The Truth</i> (2000)
-      </cite>
-      s example of columns using fancy stuff like column dividers
       <div className="notes">
         do allow for doing some cool stuff though with very simple css. probably
         more useful for print layouts
@@ -340,6 +363,7 @@ const AllSlides = memo(() => (
           display: "grid",
           alignContent: "end",
           width: "unset",
+          borderRadius: "20px",
         }}
       >
         <h2
@@ -396,13 +420,17 @@ const AllSlides = memo(() => (
     </Slide>
     <Slide>
       <img src="cronometer.png" alt="cronometer daily food record" />
-      <cite>https://cronometer.com/#diary</cite>
+      <cite>
+        <a href="https://cronometer.com/#diary">Cronometer</a>
+      </cite>
       <div className="notes">this is a table - explanation</div>
     </Slide>
     <Slide>
       <img alt="stan pricing table" src="stan-pricing-table.png" />
       <cite>
-        https://help.stan.com.au/hc/en-us/articles/115005777028-Stan-subscription-plans
+        <a href="https://help.stan.com.au/hc/en-us/articles/115005777028-Stan-subscription-plans">
+          Stan
+        </a>
       </cite>
       <div className="notes">also a table</div>
     </Slide>
@@ -412,26 +440,52 @@ const AllSlides = memo(() => (
         src="ikea-tables.png"
         className="r-stretch"
       />
-      <cite>https://www.ikea.com/au/en/cat/living-room-tables-10705/</cite>
+      <cite>
+        <a href="https://www.ikea.com/au/en/cat/living-room-tables-10705/">
+          Ikea
+        </a>
+      </cite>
       <div className="notes">not a table - explanation</div>
     </Slide>
     <Slide>
       <img alt="a gmail inbox" src="gmail-table.png" />
-      <cite>mail.google.com</cite>
-      <div className="notes">is this a table?</div>
-    </Slide>
-    <Slide>
-      <img alt="connections game grid" src="connections-grid.png" />
-      <cite>https://www.nytimes.com/games/connections</cite>
+      <cite>
+        <a href="https://mail.google.com">gmail</a>
+      </cite>
       <div className="notes">is this a table?</div>
     </Slide>
     <Slide>
       <img
-        alt="a yarn weight conversion table"
-        src="yarn-weight-conversion-table.png"
+        alt="connections game grid"
+        src="connections-grid.png"
         className="r-stretch"
       />
-      <cite>https://www.laughinghens.com/yarn-conversion-chart</cite>
+      <cite>
+        <a href="https://www.nytimes.com/games/connections">Connections</a>
+      </cite>
+      <div className="notes">is this a table?</div>
+    </Slide>
+    <Slide>
+      <div
+        style={{
+          background: "white",
+          borderRadius: "20px",
+          paddingBottom: "0",
+          maxHeight: "700px",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          alt="a yarn weight conversion table"
+          src="yarn-weight-conversion-table.png"
+          style={{ borderRadius: 0, maxHeight: "100%" }}
+        />
+      </div>
+      <cite>
+        <a href="https://www.laughinghens.com/yarn-conversion-chart">
+          Laughing Hens
+        </a>
+      </cite>
       <div className="notes">is this a table?</div>
     </Slide>
     <Slide>
@@ -476,18 +530,52 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <img
-        alt="Firefox user agent styling for table element"
-        src="firefox-user-agent.png"
-      />
-      <img
-        alt="Chrome user agent styling for table element"
-        src="chrome-user-agent.png"
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "40px",
+          width: "fit-content",
+          marginInline: "auto",
+        }}
+      >
+        <div
+          style={{
+            background: "#0c0c0d",
+            padding: "10px 20px",
+            borderRadius: "20px",
+            paddingBlockStart: "20px",
+          }}
+        >
+          <img
+            style={{ borderRadius: "0", margin: 0 }}
+            alt="Firefox user agent styling for table element"
+            src="firefox-user-agent.png"
+          />
+        </div>
+        <div
+          style={{
+            background: "#282828",
+            padding: "10px 20px",
+            borderRadius: "20px",
+            paddingBlockStart: "20px",
+          }}
+        >
+          <img
+            style={{ borderRadius: "0", margin: 0 }}
+            alt="Chrome user agent styling for table element"
+            src="chrome-user-agent.png"
+          />
+        </div>
+      </div>
     </Slide>
 
     <Slide>
-      <h1>grid & flex</h1>
+      <h1 className="multi">
+        <span className="grid">grid</span>
+        <span> & </span>
+        <span className="flex">flex</span>
+      </h1>
       <div className="notes">
         some cases, only flex or grid will work, but those cases are boring and
         easy to work out. what we really want to know is, for all the
@@ -506,13 +594,15 @@ const AllSlides = memo(() => (
           outline: "2px dashed",
           padding: "20px",
           marginInline: "auto",
+          background: "#0b1416",
+          borderRadius: "20px",
         }}
       >
         <RedditButtons />
       </div>
     </Slide>
     <Slide>
-      <FlexVsGrid browser={1} parent={1} />
+      <FlexVsGrid browser={1} parent={0.9} />
       <div className="notes">strongly suggests we should use flex</div>
     </Slide>
     <Slide>
@@ -521,7 +611,7 @@ const AllSlides = memo(() => (
   display: flex; 
 }`}</code>
       </pre>
-      <pre>
+      <pre className="grid">
         <code className="css">
           {`.container {
   display: grid; 
@@ -535,11 +625,9 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <div
-        style={{ resize: "horizontal", overflow: "hidden", padding: "60px" }}
-      >
+      <Resize>
         <TimeRangePicker />
-      </div>
+      </Resize>
       <div className="notes">
         even vertically, flex is shorter, but easier to understand
       </div>
@@ -553,7 +641,7 @@ const AllSlides = memo(() => (
 }`}
         </code>
       </pre>
-      <pre>
+      <pre className="grid">
         <code className="css">{`.container {
   display: grid;
 }`}</code>
@@ -565,10 +653,12 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <GadgetTitle />
+      <Resize>
+        <GadgetTitle />
+      </Resize>
     </Slide>
     <Slide>
-      <FlexVsGrid browser={0.8} parent={1} />
+      <FlexVsGrid browser={0.8} parent={0.9} />
     </Slide>
     <Slide>
       <pre className="flex">
@@ -580,7 +670,7 @@ const AllSlides = memo(() => (
   flex-grow: 1;
 }`}</code>
       </pre>
-      <pre>
+      <pre className="grid">
         <code className="css">{`.container {
   display: grid;
   grid-auto-flow: column;
@@ -594,10 +684,12 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <GadgetTitle inEditMode />
+      <Resize>
+        <GadgetTitle inEditMode />
+      </Resize>
     </Slide>
     <Slide>
-      <FlexVsGrid browser={0.8} parent={1} />
+      <FlexVsGrid browser={0.8} parent={0.9} />
     </Slide>
     <Slide>
       <pre className="flex">
@@ -619,20 +711,20 @@ const AllSlides = memo(() => (
       <FlexVsGrid browser={0.3} parent={0.3} />
     </Slide>
     <Slide>
-      <pre>
+      <pre className="grid">
         <code className="css">
           {`.container {
   display: grid;
-  grid-template-columns: 40px 1fr repeat(4, auto);
-  grid-template-areas: 'drag search . . .';
+  grid-template-columns: 40px 1fr max-content;
+  grid-template-areas: 'icon name price'...;
 }
 
-.drag-icon {
-  grid-area: drag;
+.icon {
+  grid-area: icon;
 }
 
-.search {
-  grid-area: search;
+.name {
+  grid-area: name;
 }`}
         </code>
       </pre>
@@ -646,55 +738,59 @@ const AllSlides = memo(() => (
     <Slide>I think we need an intro slide here or something maybe</Slide>
 
     <Slide>
-      <Resizable maxWidth="600px">
+      <Resize>
         <RavelryTags />
-      </Resizable>
-      <Fragment>
-        <img alt="a knitted chicken" src="emotional-support-chicken.jpg" />
-      </Fragment>
+      </Resize>
+      <cite style={{ marginInlineEnd: "10px" }}>
+        <a href="https://www.ravelry.com/patterns/library/emotional-support-chickentm">
+          Ravelry
+        </a>
+      </cite>
     </Slide>
     <Slide>
-      <FlexVsGrid browser={1} parent={0.9} />
+      <FlexVsGrid browser={1} parent={1} />
     </Slide>
     <Slide>
-      <pre>
+      <pre className="flex">
         <code>{`.container {
   display: flex;
   flex-wrap: wrap;
-}        
-        `}</code>
+}        `}</code>
       </pre>
     </Slide>
 
     <Slide>
-      <Episodes />
+      <Resize>
+        <Episodes />
+      </Resize>
     </Slide>
     <Slide>
       <FlexVsGrid browser={0.7} parent={-1} />
     </Slide>
     <Slide>
-      <pre>
+      <pre className="flex">
         <code>{`.container {
   display: flex;
   flex-wrap: wrap;
 }
+
 .container > * {
   width: var(--width);
-}
-      `}</code>
+}`}</code>
       </pre>
-      <pre>
+      <pre className="grid">
         <code>{`.container {
   display: grid;
   grid-template-columns: repeat(auto-fit, var(--width))
-}
-        `}</code>
+}`}</code>
       </pre>
       <div className="notes">could go either way</div>
     </Slide>
 
     <Slide>
-      <TVShows />
+      <Resize padding="0">
+        <TVShows />
+      </Resize>
       <div className="notes">
         but what if we want more than one size? like we want to show whether tv
         series are shot in standard or hi def? well, we can still do it with
@@ -703,14 +799,16 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <pre>
+      <pre className="grid">
         <code>{`.container {
   display: grid;
   grid-template-columns: repeat(auto-fit, var(--width))
 }
+
 .container > .sd {
   grid-column: span 3
 }
+
 .container > .hd {
   grid-column: span 4
 }`}</code>
@@ -723,16 +821,21 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <pre>
+      <TVShows />
+    </Slide>
+    <Slide>
+      <pre className="flex">
         <code>{`.container {
   display: flex;
   flex-wrap: wrap;
 }
+
 .container > .sd {
   width: var(--sd-width);
 }
+
 .container > .hd {
-  width: calc(var(--hd-width) * 1.33);
+  width: calc(var(--hd-width));
 }`}</code>
       </pre>
       <div className="notes">
@@ -753,17 +856,16 @@ const AllSlides = memo(() => (
       <FlexVsGrid browser={0.3} parent={0} />
     </Slide>
     <Slide>
-      <pre>
+      <pre className="grid">
         <code className="css">{`.container {
   display: grid;
-  grid-template-columns: repeat(var(--num-columns), 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }`}</code>
       </pre>
     </Slide>
     <Slide>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <pre>
-          <code className="html">{`<board>
+      <pre className="flex" style={{ maxHeight: "300px", overflow: "auto" }}>
+        <code className="html">{`<board>
   <row>
     <tile /><tile /><tile /><tile />
   <row>
@@ -777,16 +879,15 @@ const AllSlides = memo(() => (
     <tile /><tile /><tile /><tile />
   <row>
 </board>`}</code>
-        </pre>
-        <pre>
-          <code className="html">{`<board>
+      </pre>
+      <Fragment as="pre" className="grid">
+        <code className="html">{`<board>
     <tile /><tile /><tile /><tile />
     <tile /><tile /><tile /><tile />  
     <tile /><tile /><tile /><tile />
     <tile /><tile /><tile /><tile />
 </board>`}</code>
-        </pre>
-      </div>
+      </Fragment>
       <div className="notes">
         flex requires introduction of html elements purely for layout. row is
         not a concept that matters in this application. grid lets us keep the
@@ -795,8 +896,8 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <div>2d layout?</div>
-      <Fragment>just use grid</Fragment>
+      <h2 className="r-fit-text grid">2d layout?</h2>
+      <Fragment style={{ fontSize: "4em" }}>just use grid</Fragment>
       <div className="notes">
         and this is generally true in any situation where we need to layout
         multiple rows of things, and there's some relationship between the rows.
@@ -805,14 +906,14 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <FlexVsGrid browser={0.1} parent={0} />
+      <FlexVsGrid browser={0} parent={0} />
     </Slide>
     <Slide>
       <DashboardGadgetModal />
     </Slide>
     <Slide>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <pre>
+        <pre className="flex">
           <code className="html modal-highlights">
             {`<modal>
   <header />
@@ -826,7 +927,7 @@ const AllSlides = memo(() => (
 </modal>`}
           </code>
         </pre>
-        <Fragment as="pre">
+        <Fragment as="pre" className="flex">
           <code className="css">{`.main {
   display: flex;
 }
@@ -845,8 +946,8 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
-        <pre>
+      <div style={{ display: "grid", gridTemplateColumns: "300px 1fr" }}>
+        <pre className="grid">
           <code className="html">
             {`<modal>
   <header />
@@ -856,7 +957,7 @@ const AllSlides = memo(() => (
 </modal>`}
           </code>
         </pre>
-        <Fragment as="pre">
+        <Fragment as="pre" className="grid">
           <code className="css">{`.modal {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -889,14 +990,14 @@ const AllSlides = memo(() => (
         style={{
           display: "flex",
           justifyContent: "space-between",
-          color: "var(--purple)",
+          marginTop: "50px",
         }}
       >
-        <div>high level</div>
-        <div>low level</div>
+        <h2 className="grid">high level</h2>
+        <h2 className="blue">low level</h2>
       </Fragment>
     </Slide>
 
     <Slide>thank</Slide>
   </>
-));
+))
