@@ -187,7 +187,21 @@ code.hljs {
     inset 0 0 7px var(--outline-color), inset 0 0 10px var(--outline-color),
     inset 0 0 42px var(--shadow-colour);
   background: var(--background-colour);
-  padding: 15px;
+}
+.reveal pre code {
+  margin: 15px;
+}
+
+.reveal .hljs:not(:first-child).fragment {
+  top: 0;
+  left: 0;
+  width: calc(100% - 30px)
+}
+td.hljs-ln-line.hljs-ln-numbers {
+  display: none;
+}
+pre:has(code.hljs.has-highlights.visible) code:not(.has-highlights.current-fragment) {
+  opacity: .1
 }
 
 .tag {
@@ -270,6 +284,18 @@ pre:not(.background):has(~ pre.background) {
   --outline-color: hsl(42 75% 60%);
   --shadow-colour: hsl(42 98% 39%/0.6);
 }
+.neon-border {
+  color: hsl(42, 99%, 85%);
+  --outline-color: hsl(42 75% 60%);
+  --shadow-colour: hsl(42 98% 39%/0.6);
+  border: 3px solid;
+  border-radius: 10px;
+  box-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+    0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+    inset 0 0 7px var(--outline-color);
+  background: var(--background-colour);
+  padding: 15px;
+}
 
 .gadget-title button {
   border: none;
@@ -289,4 +315,17 @@ pre:not(.background):has(~ pre.background) {
 
 img {
   border-radius: 20px;
+}
+
+.reveal .fragment.neon, .reveal pre.neon.unlit {
+  visibility: visible;
+  opacity: 1;
+  box-shadow: none;
+  border-color: hsl(0 0% 100% / 0.3)
+}
+.reveal .fragment.neon.current-fragment, .reveal .fragment.neon.visible:has(code.has-highlights)  {
+  box-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
+  0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
+  inset 0 0 7px var(--outline-color);
+  border-color: inherit;
 }

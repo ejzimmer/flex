@@ -174,7 +174,6 @@ button.reddit.downvote:hover {
 }
 
 .modal {
-  border: 2px solid;
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: min-content 1fr min-content;
@@ -182,25 +181,137 @@ button.reddit.downvote:hover {
     "header header"
     "gadgets preview"
     "gadgets footer";
+  width: 800px;
+  border-radius: 3px;
+  box-shadow: rgb(57, 66, 74) 0px 0px 0px 1px, rgba(3, 4, 4, 0.36) 0px 8px 12px 0px, rgba(3, 4, 4, 0.5) 0px 0px 1px 1px;
+  background-color: #282E33;
+  color: #B6C2CF;
+  text-align: start;
+  margin-inline: auto;
 }
 .modal .header {
-  border-block-end: 1px solid;
   grid-area: header;
+  padding: 24px;
+  padding-block-end: 22px;
+  font-size: 28px;
+  font-weight: 700;
 }
 .modal .gadgets {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  border-inline-end: 1px solid;
+  border-inline-end: 2px solid #A6C5E229;
   grid-area: gadgets;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+}
+.modal .gadgets li {
+  line-height: auto;
+}
+.modal .gadgets button {
+  color: #9FADBC;
+  width: 100%;
+  border: 0;
+  padding: 8px;
+  border-radius: 3px;
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  text-align: start;
+  position: relative
+}
+.modal .gadgets button:hover {
+  color: #9FADBC;
+  background-color: #A1BDD914;
+}
+.modal .gadgets button[aria-selected="true"] {
+  background-color: #1C2B41;
+  color: #579DFF;
+}
+.modal .gadgets button[aria-selected="true"]::before {
+  width: 4px;
+  position: absolute;
+  background: #579DFF;
+  border-radius: 0 4px 4px 0;
+  content: '';
+  inset-block-end: 12px;
+  inset-block-start: 12px;
+  inset-inline-start: 0;
 }
 .modal .gadget-preview {
-  border-block-end: 1px solid;
   grid-area: preview;
+  padding: 0 1pc;
+  margin-block-end: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .gadget-preview img {
+  border-radius: 0;
+  height: 260px
 }
 .modal .footer {
-  text-align: end;
   grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+.modal .footer label {
+  border-block-start: 2px solid #A6C5E229;
+  padding-block-start: 8px;
+  padding-block-end: 4px;
+  color: #9FADBC;
+  font-weight: 600;
+  font-size: 12px;
+}
+.modal .footer label::after {
+  content: '*';
+  color: #FD9891;
+}
+.modal .footer select {
+  background: #22272B;
+  border: 2px solid #738496;
+  border-radius: 3px;
+  color: rgb(182, 194, 207);
+  padding: 2px 6px;
+  font-size: 14px;
+  height: 30px;
+}
+.modal .footer .buttons {
+  padding: 24px;
+  padding-block-start: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 8px;
+}
+.modal .footer button {
+  display: inline-flex;
+  align-items: baseline;
+  border-width: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background: #00000000;
+  line-height: 2.28571em;
+  padding: 0 10px;
+  border-radius: 3px;
+  color: #B6C2CF;
+  box-shadow: none;
+  text-shadow: none;
+}
+.modal .footer button:hover {
+  background: #A1BDD914;
+}
+.modal .footer button.primary {
+  background: #579DFF;
+  color: #1D2125;
+}
+.modal .footer button.primary:hover {
+  background: #85B8FF;
 }
 
 .modal-highlights .hljs-tag:nth-child(3),
@@ -217,6 +328,14 @@ button.reddit.downvote:hover {
 .modal-highlights .hljs-tag:nth-child(8),
 .modal-highlights .hljs-tag:nth-child(9),
 .modal-highlights .hljs-tag:nth-child(5) {
+  color: var(--blue);
+  background: hsl(205 50% 50% / 0.4);
+}
+
+.reveal code.html.has-highlights tr:not(.highlight-line) {
+  opacity: 1;
+}
+.reveal code.html.has-highlights tr.highlight-line {
   color: var(--blue);
   background: hsl(205 50% 50% / 0.4);
 }
