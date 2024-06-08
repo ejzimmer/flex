@@ -136,6 +136,7 @@ export function RedditButtons({ fontSize = ".4em" }: { fontSize?: string }) {
     display: "flex",
     gap: ".5em",
     "--font-size": fontSize,
+    background: "#0b1416",
   }
   return (
     <div style={containerStyle}>

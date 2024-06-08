@@ -18,32 +18,32 @@ const foodItems = [
     description: "Cauliflower, potato tossed with tomato, ginger and spices.",
     price: 18,
   },
-] as const;
+] as const
 
 export function Menu() {
   return (
-    <div style={{ width: "50%", marginInline: "auto" }}>
+    <div style={{ marginInline: "auto" }}>
       {foodItems.map((item) => (
         <FoodItem key={item.name} {...item} />
       ))}
     </div>
-  );
+  )
 }
 
 type Props = {
-  veg?: keyof typeof icons;
-  name: string;
-  description: string;
-  price: number;
-};
+  veg?: keyof typeof icons
+  name: string
+  description: string
+  price: number
+}
 
 const icons = {
   vego: VegetarianIcon,
   vegan: VeganIcon,
-};
+}
 
 function FoodItem({ veg, name, description, price }: Props) {
-  const Icon = veg ? icons[veg] : null;
+  const Icon = veg ? icons[veg] : null
   return (
     <div
       style={{
@@ -64,7 +64,7 @@ function FoodItem({ veg, name, description, price }: Props) {
       <div style={{ gridArea: "description", opacity: 0.6 }}>{description}</div>
       <div style={{ gridArea: "price" }}>${price}</div>
     </div>
-  );
+  )
 }
 
 function VegetarianIcon() {
@@ -106,7 +106,7 @@ function VegetarianIcon() {
         </text>
       </g>
     </svg>
-  );
+  )
 }
 
 function VeganIcon() {
@@ -178,5 +178,5 @@ function VeganIcon() {
         </text>
       </g>
     </svg>
-  );
+  )
 }

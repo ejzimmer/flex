@@ -32,12 +32,33 @@ code {
   font-weight: 400;
   src: url("/public/tilt-neon-v10-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-
 @font-face {
-  font-family: "Red Hat Display";
-  src: url("/public/RedHatDisplay.woff2") format("woff2");
-  font-weight: normal;
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Charlie Display";
   font-style: normal;
+  font-weight: 400;
+  src: url("/css/Charlie_Display-Light.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Charlie Display";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/css/Charlie_Display-Bold.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/public/raleway-v14-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/public/raleway-v14-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 .notes {
@@ -91,10 +112,12 @@ button.reddit {
   background: #dbeaf7;
   color: black;
   border-radius: 100px;
-  font-size: 0.4em;
+  font-size: 16.8px;
   display: flex;
   align-items: center;
   gap: 0.25em;
+  font-family: inherit;
+  font-weight: bold;
 }
 button.reddit:hover {
   background: #d0e4f5;
@@ -183,11 +206,13 @@ button.reddit.downvote:hover {
     "gadgets footer";
   width: 800px;
   border-radius: 3px;
-  box-shadow: rgb(57, 66, 74) 0px 0px 0px 1px, rgba(3, 4, 4, 0.36) 0px 8px 12px 0px, rgba(3, 4, 4, 0.5) 0px 0px 1px 1px;
-  background-color: #282E33;
-  color: #B6C2CF;
+  box-shadow: rgb(57, 66, 74) 0px 0px 0px 1px,
+    rgba(3, 4, 4, 0.36) 0px 8px 12px 0px, rgba(3, 4, 4, 0.5) 0px 0px 1px 1px;
+  background-color: #282e33;
+  color: #b6c2cf;
   text-align: start;
   margin-inline: auto;
+  font-family: "Charlie Display";
 }
 .modal .header {
   grid-area: header;
@@ -200,7 +225,7 @@ button.reddit.downvote:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  border-inline-end: 2px solid #A6C5E229;
+  border-inline-end: 2px solid #a6c5e229;
   grid-area: gadgets;
   min-width: 240px;
   display: flex;
@@ -212,7 +237,7 @@ button.reddit.downvote:hover {
   line-height: auto;
 }
 .modal .gadgets button {
-  color: #9FADBC;
+  color: #9fadbc;
   width: 100%;
   border: 0;
   padding: 8px;
@@ -221,22 +246,24 @@ button.reddit.downvote:hover {
   box-shadow: none;
   text-shadow: none;
   text-align: start;
-  position: relative
+  position: relative;
+  font-family: unset;
+  font-weight: 700;
 }
 .modal .gadgets button:hover {
-  color: #9FADBC;
-  background-color: #A1BDD914;
+  color: #9fadbc;
+  background-color: #a1bdd914;
 }
 .modal .gadgets button[aria-selected="true"] {
-  background-color: #1C2B41;
-  color: #579DFF;
+  background-color: #1c2b41;
+  color: #579dff;
 }
 .modal .gadgets button[aria-selected="true"]::before {
   width: 4px;
   position: absolute;
-  background: #579DFF;
+  background: #579dff;
   border-radius: 0 4px 4px 0;
-  content: '';
+  content: "";
   inset-block-end: 12px;
   inset-block-start: 12px;
   inset-inline-start: 0;
@@ -251,7 +278,7 @@ button.reddit.downvote:hover {
 }
 .modal .gadget-preview img {
   border-radius: 0;
-  height: 260px
+  height: 260px;
 }
 .modal .footer {
   grid-area: footer;
@@ -260,19 +287,19 @@ button.reddit.downvote:hover {
   padding: 12px;
 }
 .modal .footer label {
-  border-block-start: 2px solid #A6C5E229;
+  border-block-start: 2px solid #a6c5e229;
   padding-block-start: 8px;
   padding-block-end: 4px;
-  color: #9FADBC;
+  color: #9fadbc;
   font-weight: 600;
   font-size: 12px;
 }
 .modal .footer label::after {
-  content: '*';
-  color: #FD9891;
+  content: "*";
+  color: #fd9891;
 }
 .modal .footer select {
-  background: #22272B;
+  background: #22272b;
   border: 2px solid #738496;
   border-radius: 3px;
   color: rgb(182, 194, 207);
@@ -299,19 +326,21 @@ button.reddit.downvote:hover {
   line-height: 2.28571em;
   padding: 0 10px;
   border-radius: 3px;
-  color: #B6C2CF;
+  color: #b6c2cf;
   box-shadow: none;
   text-shadow: none;
+  font-family: unset;
+  font-weight: 700;
 }
 .modal .footer button:hover {
-  background: #A1BDD914;
+  background: #a1bdd914;
 }
 .modal .footer button.primary {
-  background: #579DFF;
-  color: #1D2125;
+  background: #579dff;
+  color: #1d2125;
 }
 .modal .footer button.primary:hover {
-  background: #85B8FF;
+  background: #85b8ff;
 }
 
 .modal-highlights .hljs-tag:nth-child(3),

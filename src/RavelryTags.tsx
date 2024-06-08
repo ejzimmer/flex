@@ -60,9 +60,10 @@ export function RavelryTags() {
   )
 }
 
-function RavelryTag({ children }: { children: ReactNode }) {
+export function RavelryTag({ children }: { children: ReactNode }) {
   return (
     <div
+      className="ravelry-tag"
       style={{
         border: "2px solid white",
         background: "#3852a8",
