@@ -247,7 +247,7 @@ const AllSlides = memo(() => (
     <Slide>
       <div
         style={{
-          columnCount: 3,
+          columns: 3,
           background: "white",
           color: "black",
           fontFamily: "serif",
@@ -436,17 +436,17 @@ const AllSlides = memo(() => (
       <h1>table</h1>
     </Slide>
     <Slide>
-      <img alt="a gmail inbox" src="gmail-table.png" />
-      <cite>
-        <a href="https://mail.google.com">gmail</a>
-      </cite>
-    </Slide>
-    <Slide>
       <img alt="stan pricing table" src="stan-pricing-table.png" />
       <cite>
         <a href="https://help.stan.com.au/hc/en-us/articles/115005777028-Stan-subscription-plans">
           Stan
         </a>
+      </cite>
+    </Slide>
+    <Slide>
+      <img alt="a gmail inbox" src="gmail-table.png" />
+      <cite>
+        <a href="https://mail.google.com">gmail</a>
       </cite>
     </Slide>
     <Slide>
@@ -556,6 +556,64 @@ const AllSlides = memo(() => (
         easy to work out. what we really want to know is, for all the
         overlapping cases, what's the easiest way to do it, without having to
         try both and see
+      </div>
+    </Slide>
+    <Slide>
+      <FlexVsGrid />
+    </Slide>
+    <Slide>
+      <div
+        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px" }}
+      >
+        <div>
+          <div>parent</div>
+          <div className="linebox-container grid" style={{ height: "300px" }}>
+            <div className="grid-container fragment" data-fragment-index="1">
+              <div>
+                <div className="element fragment" data-fragment-index="2"></div>
+              </div>
+              <div>
+                <div className="element fragment" data-fragment-index="3"></div>
+              </div>
+              <div>
+                <div className="element fragment" data-fragment-index="4"></div>
+              </div>
+              <div>
+                <div
+                  className="element fragment overflower"
+                  data-fragment-index="5"
+                ></div>
+              </div>
+              <div>
+                <div
+                  className="element fragment overflowee"
+                  data-fragment-index="6"
+                ></div>
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>children</div>
+          <div
+            className="linebox-container flexbox-container"
+            style={{ height: "300px" }}
+          >
+            <div className="element fragment" data-fragment-index="7"></div>
+            <div className="element fragment" data-fragment-index="8">
+              <div
+                className="stretcher fragment"
+                data-fragment-index="11"
+              ></div>
+            </div>
+            <div className="element fragment" data-fragment-index="9"></div>
+            <div className="element fragment" data-fragment-index="10"></div>
+          </div>
+        </div>
       </div>
     </Slide>
     <Slide>
