@@ -296,6 +296,7 @@ pre:not(.background):has(~ pre.background) {
 .reveal h2.blue,
 .reveal pre.flex,
 .flex,
+.neon-border.flex,
 .blue {
   color: hsl(201 50% 90%);
   --outline-color: hsl(201 75% 60%);

@@ -214,6 +214,12 @@ button.reddit.downvote:hover {
   margin-inline: auto;
   font-family: "Charlie Display";
 }
+.modal.fragment.visible.full-width-footer {
+  grid-template-areas:
+    "header header"
+    "gadgets preview"
+    "footer footer";
+}
 .modal .header {
   grid-area: header;
   padding: 24px;
@@ -343,22 +349,43 @@ button.reddit.downvote:hover {
   background: #85b8ff;
 }
 
-.modal-highlights .hljs-tag:nth-child(3),
-.modal-highlights .hljs-tag:nth-child(3) *,
-.modal-highlights .hljs-tag:nth-child(8),
-.modal-highlights .hljs-tag:nth-child(8) *,
-.modal-highlights .hljs-tag:nth-child(9),
-.modal-highlights .hljs-tag:nth-child(9) *,
-.modal-highlights .hljs-tag:nth-child(5),
-.modal-highlights .hljs-tag:nth-child(5) * {
-  color: var(--blue);
+.modal-highlights.fragment {
+  visibility: visible;
+  opacity: 1;
+  text-align: left;
+  color: rgb(249, 38, 114);
+  --text-height: 33px;
+  --indent: 0.75em;
 }
-.modal-highlights .hljs-tag:nth-child(3),
-.modal-highlights .hljs-tag:nth-child(8),
-.modal-highlights .hljs-tag:nth-child(9),
-.modal-highlights .hljs-tag:nth-child(5) {
+.modal-highlights > div {
+  height: var(--text-height);
+  position: relative;
+}
+.modal-highlights .indent-1,
+.modal-highlights .indent-2,
+.modal-highlights .indent-3 {
+  left: var(--indent);
+  transition: all 0.5s;
+}
+.modal-highlights .box {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.modal-highlights.fragment.visible > .box {
+  height: var(--text-height);
+  overflow: auto;
+  opacity: 1;
   color: var(--blue);
   background: hsl(205 50% 50% / 0.4);
+  width: max-content;
+}
+.modal-highlights.fragment.visible .indent-2 {
+  left: calc(2 * var(--indent));
+}
+.modal-highlights.fragment.visible .indent-3 {
+  left: calc(3 * var(--indent));
 }
 
 .reveal code.html.has-highlights tr:not(.highlight-line) {

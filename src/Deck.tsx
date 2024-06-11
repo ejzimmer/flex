@@ -469,7 +469,7 @@ const AllSlides = memo(() => (
         className="r-stretch"
         style={{ position: "relative", display: "flex", alignItems: "center" }}
       >
-        <code className="r-fit-text">display: table</code>
+        <code className="r-fit-text">display: table;</code>
         <Fragment
           style={{
             position: "absolute",
@@ -785,7 +785,7 @@ const AllSlides = memo(() => (
       <pre className="grid neon unlit">
         <code>{`.container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, var(--width))
+  grid-template-columns: repeat(auto-fit, var(--width));
 }`}</code>
       </pre>
       <div className="notes">could go either way</div>
@@ -804,7 +804,7 @@ const AllSlides = memo(() => (
       <pre className="grid neon unlit">
         <code>{`.container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, var(--width))
+  grid-template-columns: repeat(auto-fit, var(--width));
 }`}</code>
       </pre>
       <div className="notes">could go either way</div>
@@ -823,7 +823,7 @@ const AllSlides = memo(() => (
       <pre className="grid">
         <code data-line-numbers="|2|3">{`.container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, var(--width))
+  grid-template-columns: repeat(auto-fit, var(--width));
 }`}</code>
       </pre>
       <div className="notes">could go either way</div>
@@ -844,15 +844,15 @@ const AllSlides = memo(() => (
       <pre className="grid">
         <code data-line-numbers="|6-12">{`.container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, var(--width))
+  grid-template-columns: repeat(auto-fit, var(--width));
 }
 
 .container > .sd {
-  grid-column: span 3
+  grid-column: span 3;
 }
 
 .container > .hd {
-  grid-column: span 4
+  grid-column: span 4;
 }`}</code>
       </pre>
       <div className="notes">
@@ -900,7 +900,7 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
     <Slide>
-      <FlexVsGrid browser={0.3} parent={0} />
+      <FlexVsGrid browser={0.5} parent={0} />
     </Slide>
     <Slide>
       <pre className="grid">
@@ -923,9 +923,6 @@ const AllSlides = memo(() => (
       </div>
     </Slide>
 
-    <Slide>
-      <FlexVsGrid browser={0} parent={0} />
-    </Slide>
     <Slide>
       <div
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}
@@ -974,21 +971,33 @@ const AllSlides = memo(() => (
       <DashboardGadgetModal />
     </Slide>
     <Slide>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <pre className="flex">
-          <code className="html modal-highlights">
-            {`<modal>
-  <header />
-  <main>
-    <gadget-list>
-    <right-panel>
-      <gadget-preview />
-      <footer />
-    </right-panel>
-  </main>
-</modal>`}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
+        <div
+          className="neon-border flex"
+          style={{
+            borderWidth: "8px",
+            fontSize: "23.1px",
+            marginBlock: "20px",
+          }}
+        >
+          <code className="html modal-highlights fragment custom">
+            <div>{`<modal>`}</div>
+            <div className="indent-1">{`<header />`}</div>
+            <div className="indent-1 box">{`<main>`}</div>
+            <div className="indent-2">{`<gadget-list />`}</div>
+            <div className="indent-2 box">{`<right-panel>`}</div>
+            <div className="indent-3">{`<gadget-preview />`}</div>
+            <div className="indent-3">{`<footer />`}</div>
+            <div className="indent-2 box">{`</right-panel>`}</div>
+            <div className="indent-1 box">{`</main>`}</div>
+            <div>{`</modal>`}</div>
           </code>
-        </pre>
+        </div>
         <Fragment as="pre" className="flex">
           <code className="css">{`.main {
   display: flex;
@@ -1005,6 +1014,55 @@ const AllSlides = memo(() => (
 }
         `}</code>
         </Fragment>
+      </div>
+    </Slide>
+    <Slide>
+      <DashboardGadgetModal fullWidthFooter />
+    </Slide>
+    <Slide>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        }}
+      >
+        <div
+          className="neon-border flex"
+          style={{
+            borderWidth: "8px",
+            fontSize: "23.1px",
+            marginBlock: "20px",
+          }}
+        >
+          <code className="html modal-highlights fragment visible custom">
+            <div>{`<modal>`}</div>
+            <div className="indent-1">{`<header />`}</div>
+            <div className="indent-1 box">{`<main>`}</div>
+            <div className="indent-2">{`<gadget-list />`}</div>
+            <div className="indent-2 box">{`<right-panel>`}</div>
+            <div className="indent-3">{`<gadget-preview />`}</div>
+            <div className="indent-3">{`<footer />`}</div>
+            <div className="indent-2 box">{`</right-panel>`}</div>
+            <div className="indent-1 box">{`</main>`}</div>
+            <div>{`</modal>`}</div>
+          </code>
+        </div>
+        <pre className="flex">
+          <code className="css">{`.main {
+  display: flex;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gadget-preview {
+  flex-grow: 1;
+}
+        `}</code>
+        </pre>
       </div>
     </Slide>
 
@@ -1059,7 +1117,7 @@ const AllSlides = memo(() => (
           </code>
         </pre>
         <pre className="grid">
-          <code className="css" data-line-numbers="|3|4|5-8">{`.modal {
+          <code className="css" data-line-numbers="|2-4|5-8">{`.modal {
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: min-content 1fr min-content;

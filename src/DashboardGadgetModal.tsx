@@ -1,22 +1,30 @@
-import { useRef } from "react";
+import { useRef } from "react"
 
-export function DashboardGadgetModal() {
-  const imgRef = useRef<HTMLImageElement>(null);
+export function DashboardGadgetModal({
+  fullWidthFooter,
+}: {
+  fullWidthFooter?: boolean
+}) {
+  const imgRef = useRef<HTMLImageElement>(null)
 
   const selectGadget = (event: React.MouseEvent<HTMLButtonElement>) => {
     document
       .querySelector(".gadgets button[aria-selected]")
-      ?.removeAttribute("aria-selected");
+      ?.removeAttribute("aria-selected")
 
-    const clicked = event.currentTarget;
-    clicked.setAttribute("aria-selected", "true");
-    const chart = clicked.innerText.toLowerCase().replaceAll(" ", "-") + ".png";
-    console.log(chart);
-    imgRef.current!.src = chart;
-  };
+    const clicked = event.currentTarget
+    clicked.setAttribute("aria-selected", "true")
+    const chart = clicked.innerText.toLowerCase().replaceAll(" ", "-") + ".png"
+    console.log(chart)
+    imgRef.current!.src = chart
+  }
 
   return (
-    <div className="modal">
+    <div
+      className={`modal custom ${
+        fullWidthFooter ? "full-width-footer fragment" : ""
+      }`}
+    >
       <div className="header">Create dashboard gadget</div>
       <ul className="gadgets">
         <li>
@@ -51,5 +59,5 @@ export function DashboardGadgetModal() {
         </div>
       </div>
     </div>
-  );
+  )
 }
