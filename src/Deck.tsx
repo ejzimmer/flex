@@ -1012,7 +1012,7 @@ const AllSlides = memo(() => (
             marginBlock: "20px",
           }}
         >
-          <code className="html modal-highlights fragment visible custom">
+          <code className="html modal-highlights visible custom">
             <div>{`<modal>`}</div>
             <div className="indent-1">{`<header />`}</div>
             <div className="indent-1 box">{`<main>`}</div>
