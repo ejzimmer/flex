@@ -884,7 +884,7 @@ const AllSlides = memo(() => (
       <pre className="grid">
         <code className="css">{`.container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }`}</code>
       </pre>
     </Slide>
