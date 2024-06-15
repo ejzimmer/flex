@@ -43,6 +43,7 @@ export default function Deck() {
     const deck = new Reveal({
       ...options,
       plugins: [RevealHighlight],
+      controls: true,
     })
     deck.initialize()
     setDeck(deck)
