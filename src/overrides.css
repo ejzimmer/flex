@@ -413,7 +413,6 @@ img {
   width: 200%;
   background-color: var(--red);
   flex-shrink: 0;
-  z-index: 1;
   box-shadow: inset -2px -2px black, 2px 2px 8px hsla(0, 83%, 40%, 0.5);
 }
 .grid-container .element.overflowee {
@@ -444,4 +443,8 @@ img {
 }
 .flexbox-container .element:has(.stretcher.visible) ~ .element:last-child {
   background-color: var(--yellow);
+}
+
+.css .hljs-selector-pseudo {
+  color: inherit;
 }

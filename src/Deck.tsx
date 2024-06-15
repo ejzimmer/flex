@@ -1095,7 +1095,7 @@ const AllSlides = memo(() => (
           </code>
         </pre>
         <pre className="grid">
-          <code className="css" data-line-numbers="|2-4|5-8">{`.modal {
+          <code className="css" data-line-numbers="2-4|5-8">{`.modal {
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-template-rows: min-content 1fr min-content;
