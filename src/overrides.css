@@ -50,7 +50,7 @@ code.hljs table {
 }
 
 button {
-  font-family: "sans-serif";
+  font-family: -apple-system, "sans-serif";
   background: var(--background-colour);
   color: var(--primary-colour);
   font-size: 20px;
