@@ -10,6 +10,7 @@ body {
   --blue: var(--primary-colour);
   --red: hsl(360, 100%, 45%);
   --yellow: hsl(42, 99%, 50%);
+  --green: hsl(140, 68%, 39%);
 }
 
 * {
@@ -152,7 +153,8 @@ button.reddit.downvote:hover {
   display: flex;
 }
 .time-range li input:checked + label {
-  background: var(--yellow);
+  color: var(--blue);
+  background: white;
 }
 .time-range li label:hover {
   background: var(--blue);
