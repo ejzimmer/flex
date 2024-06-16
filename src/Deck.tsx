@@ -5,49 +5,49 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react"
-import Reveal, { Api } from "reveal.js"
-import { options } from "./revealOptions"
-import RevealHighlight from "reveal.js/plugin/highlight/highlight"
+} from "react";
+import Reveal, { Api } from "reveal.js";
+import { options } from "./revealOptions";
+import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 
-import "reveal.js/plugin/highlight/monokai.css"
-import { Fragment, Slide } from "./helpers/Slide"
-import { FlexVsGrid } from "./FlexVsGrid"
-import { Episodes } from "./Episodes"
-import { TVShows } from "./TVShows"
-import { RedditButtons, RedditPost } from "./RedditPost"
-import { TimeRangePicker } from "./TimeRangePicker"
-import { RavelryTag, RavelryTags } from "./RavelryTags"
-import { Connections } from "./Connections"
-import { DashboardGadgetModal } from "./DashboardGadgetModal"
-import { Menu } from "./Menu"
-import { GadgetTitle } from "./GadgetTitle"
-import { Resize } from "./helpers/Resize"
+import "reveal.js/plugin/highlight/monokai.css";
+import { Fragment, Slide } from "./helpers/Slide";
+import { FlexVsGrid } from "./FlexVsGrid";
+import { Episodes } from "./Episodes";
+import { TVShows } from "./TVShows";
+import { RedditButtons, RedditPost } from "./RedditPost";
+import { TimeRangePicker } from "./TimeRangePicker";
+import { RavelryTag, RavelryTags } from "./RavelryTags";
+import { Connections } from "./Connections";
+import { DashboardGadgetModal } from "./DashboardGadgetModal";
+import { Menu } from "./Menu";
+import { GadgetTitle } from "./GadgetTitle";
+import { Resize } from "./helpers/Resize";
 
-const DeckContext = createContext<Api | null>(null)
+const DeckContext = createContext<Api | null>(null);
 
 function DeckProvider({ deck, children }: PropsWithChildren<{ deck?: Api }>) {
   return (
     <DeckContext.Provider value={deck ?? null}>{children}</DeckContext.Provider>
-  )
+  );
 }
 
 export function useDeck() {
-  return useContext(DeckContext)
+  return useContext(DeckContext);
 }
 
 export default function Deck() {
-  const [deck, setDeck] = useState<Api>()
+  const [deck, setDeck] = useState<Api>();
 
   useEffect(() => {
     const deck = new Reveal({
       ...options,
       plugins: [RevealHighlight],
       controls: true,
-    })
-    deck.initialize()
-    setDeck(deck)
-  }, [])
+    });
+    deck.initialize();
+    setDeck(deck);
+  }, []);
 
   return (
     <DeckProvider deck={deck}>
@@ -57,7 +57,7 @@ export default function Deck() {
         </div>
       </div>
     </DeckProvider>
-  )
+  );
 }
 
 const AllSlides = memo(() => (
@@ -1137,35 +1137,51 @@ const AllSlides = memo(() => (
     </Slide>
 
     <Slide>
-      <svg
-        viewBox="0 0 400 150"
-        stroke="white"
-        strokeWidth="8"
-        strokeLinecap="round"
-        className="neon-outline"
-        fill="none"
-        style={{ position: "absolute", left: 0, right: 0 }}
+      <h2 style={{ marginBlockEnd: "10px" }} className="neon green">
+        Erin Zimmer
+      </h2>
+      <a
+        className="fragment tiny-neon-text blue"
+        href="https://flex.ez.codes"
+        style={{
+          color: "hsl(201 50% 90%)",
+          display: "block",
+          marginBlockEnd: "40px",
+        }}
       >
-        <path d="M205,5 A190,70 0 1 1 195,5" />
-      </svg>
-      <div style={{ position: "absolute", top: "98px", left: "140px" }}>
+        flex.ez.codes
+      </a>
+      <div className="fragment" style={{ position: "relative" }}>
+        <svg
+          viewBox="0 0 400 125"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          className="neon-outline"
+          fill="none"
+        >
+          <path d="M205,5 A190,56 0 1 1 195,5" />
+        </svg>
         <div
-          className="neon-text blue"
           style={{
-            fontSize: "3em",
-            fontWeight: "bold",
+            position: "absolute",
+            top: "50%",
+            left: 0,
+            right: 0,
+            transform: "translateY(-50%)",
           }}
         >
-          THANK YOU
+          <div
+            className="neon-text blue"
+            style={{
+              fontSize: "3em",
+              fontWeight: "bold",
+            }}
+          >
+            THANK YOU
+          </div>
         </div>
-        <a
-          className="fragment tiny-neon-text blue"
-          href="https://flex.ez.codes"
-          style={{ color: "hsl(201 50% 90%)" }}
-        >
-          flex.ez.codes
-        </a>
       </div>
     </Slide>
   </>
-))
+));
