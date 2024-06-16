@@ -250,9 +250,9 @@ pre:not(.background):has(~ pre.background) {
 }
 
 .reveal h1 {
-  color: hsl(140, 99%, 95%);
-  --outline-color: hsl(140, 75%, 60%);
-  --shadow-colour: hsla(140, 68%, 39%, 0.6);
+  color: hsl(304, 74%, 95%);
+  --outline-color: hsl(304, 75%, 60%);
+  --shadow-colour: hsla(304, 68%, 39%, 0.6);
   text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
     0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
     0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
@@ -260,9 +260,9 @@ pre:not(.background):has(~ pre.background) {
 }
 
 .reveal h1.multi {
-  color: hsl(140, 99%, 95%);
-  --outline-color: hsl(140, 75%, 60%);
-  --shadow-colour: hsla(140, 68%, 39%, 0.6);
+  color: hsl(304, 74%, 95%);
+  --outline-color: hsl(304, 75%, 60%);
+  --shadow-colour: hsla(304, 68%, 39%, 0.6);
   text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
     0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
     0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
@@ -279,9 +279,9 @@ pre:not(.background):has(~ pre.background) {
 }
 
 .reveal h2 {
-  color: hsl(140, 99%, 95%);
-  --outline-color: hsl(140, 75%, 60%);
-  --shadow-colour: hsla(140, 68%, 39%, 0.6);
+  color: hsl(304, 74%, 95%);
+  --outline-color: hsl(304, 75%, 60%);
+  --shadow-colour: hsla(304, 68%, 39%, 0.6);
   text-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
     0 0 42px var(--shadow-colour), 0 0 82px var(--shadow-colour),
     0 0 92px var(--shadow-colour), 0 0 102px var(--shadow-colour),
@@ -307,14 +307,14 @@ pre:not(.background):has(~ pre.background) {
 }
 .reveal pre,
 .green {
-  color: hsl(140, 99%, 95%);
-  --outline-color: hsl(140, 75%, 60%);
-  --shadow-colour: hsla(140, 68%, 39%, 0.6);
+  color: hsl(304, 74%, 95%);
+  --outline-color: hsl(304, 75%, 60%);
+  --shadow-colour: hsla(304, 68%, 39%, 0.6);
 }
 .neon-border {
-  color: hsl(140, 99%, 95%);
-  --outline-color: hsl(140, 75%, 60%);
-  --shadow-colour: hsla(140, 68%, 39%, 0.6);
+  color: hsl(304, 74%, 95%);
+  --outline-color: hsl(304, 75%, 60%);
+  --shadow-colour: hsla(304, 68%, 39%, 0.6);
   border: 3px solid;
   border-radius: 10px;
   box-shadow: 0 0 7px var(--outline-color), 0 0 10px var(--outline-color),
